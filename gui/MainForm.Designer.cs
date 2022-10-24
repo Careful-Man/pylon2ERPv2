@@ -77,7 +77,7 @@ namespace Pylon2ERP
             this.consoleRichTextBox.Location = new System.Drawing.Point(0, 0);
             this.consoleRichTextBox.Name = "consoleRichTextBox";
             this.consoleRichTextBox.ReadOnly = true;
-            this.consoleRichTextBox.Size = new System.Drawing.Size(487, 287);
+            this.consoleRichTextBox.Size = new System.Drawing.Size(481, 287);
             this.consoleRichTextBox.TabIndex = 9;
             this.consoleRichTextBox.Text = "";
             this.consoleRichTextBox.WordWrap = false;
@@ -196,7 +196,7 @@ namespace Pylon2ERP
             this.extractAllButton.FlatAppearance.BorderSize = 2;
             this.extractAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.extractAllButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.extractAllButton.Location = new System.Drawing.Point(308, 331);
+            this.extractAllButton.Location = new System.Drawing.Point(302, 331);
             this.extractAllButton.Name = "extractAllButton";
             this.extractAllButton.Size = new System.Drawing.Size(97, 26);
             this.extractAllButton.TabIndex = 12;
@@ -213,7 +213,7 @@ namespace Pylon2ERP
             this.consolePanel.Controls.Add(this.consoleRichTextBox);
             this.consolePanel.Location = new System.Drawing.Point(0, 30);
             this.consolePanel.Name = "consolePanel";
-            this.consolePanel.Size = new System.Drawing.Size(489, 289);
+            this.consolePanel.Size = new System.Drawing.Size(483, 289);
             this.consolePanel.TabIndex = 16;
             // 
             // startButton
@@ -224,7 +224,7 @@ namespace Pylon2ERP
             this.startButton.FlatAppearance.BorderSize = 2;
             this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.startButton.Location = new System.Drawing.Point(420, 331);
+            this.startButton.Location = new System.Drawing.Point(414, 331);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(69, 26);
             this.startButton.TabIndex = 13;
@@ -272,8 +272,7 @@ namespace Pylon2ERP
             this.helpToolStripStatusLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.helpToolStripStatusLabel.Size = new System.Drawing.Size(64, 24);
             this.helpToolStripStatusLabel.Text = "Βοήθεια";
-            this.helpToolStripStatusLabel.ToolTipText = "Για βοήθεια πατήστε εδώ, και μετα κλικ στο συστατικό που θέλετε να δείτε περισσότ" +
-    "ερες λεπτομέρειες.";
+            this.helpToolStripStatusLabel.ToolTipText = "Για βοήθεια πατήστε εδώ.";
             this.helpToolStripStatusLabel.Click += new System.EventHandler(this.helpToolStripStatusLabel_Click);
             this.helpToolStripStatusLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.helpToolStripStatusLabel_MouseDown);
             this.helpToolStripStatusLabel.MouseLeave += new System.EventHandler(this.helpToolStripStatusLabel_MouseLeave);
