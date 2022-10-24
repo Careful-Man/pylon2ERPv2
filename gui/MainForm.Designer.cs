@@ -77,7 +77,7 @@ namespace Pylon2ERP
             this.consoleRichTextBox.Location = new System.Drawing.Point(0, 0);
             this.consoleRichTextBox.Name = "consoleRichTextBox";
             this.consoleRichTextBox.ReadOnly = true;
-            this.consoleRichTextBox.Size = new System.Drawing.Size(481, 287);
+            this.consoleRichTextBox.Size = new System.Drawing.Size(494, 287);
             this.consoleRichTextBox.TabIndex = 9;
             this.consoleRichTextBox.Text = "";
             this.consoleRichTextBox.WordWrap = false;
@@ -101,7 +101,7 @@ namespace Pylon2ERP
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.articlesAndConsoleSplitContainer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.articlesAndConsoleSplitContainer.Location = new System.Drawing.Point(3, 104);
+            this.articlesAndConsoleSplitContainer.Location = new System.Drawing.Point(0, 104);
             this.articlesAndConsoleSplitContainer.Name = "articlesAndConsoleSplitContainer";
             // 
             // articlesAndConsoleSplitContainer.Panel1
@@ -119,8 +119,8 @@ namespace Pylon2ERP
             this.articlesAndConsoleSplitContainer.Panel2.Controls.Add(this.consolePanel);
             this.articlesAndConsoleSplitContainer.Panel2.Controls.Add(this.startButton);
             this.articlesAndConsoleSplitContainer.Panel2MinSize = 400;
-            this.articlesAndConsoleSplitContainer.Size = new System.Drawing.Size(827, 375);
-            this.articlesAndConsoleSplitContainer.SplitterDistance = 324;
+            this.articlesAndConsoleSplitContainer.Size = new System.Drawing.Size(834, 375);
+            this.articlesAndConsoleSplitContainer.SplitterDistance = 314;
             this.articlesAndConsoleSplitContainer.SplitterWidth = 10;
             this.articlesAndConsoleSplitContainer.TabIndex = 6;
             this.articlesAndConsoleSplitContainer.TabStop = false;
@@ -128,7 +128,7 @@ namespace Pylon2ERP
             // articlesToExtractLabel
             // 
             this.articlesToExtractLabel.AutoSize = true;
-            this.articlesToExtractLabel.Location = new System.Drawing.Point(6, 9);
+            this.articlesToExtractLabel.Location = new System.Drawing.Point(9, 9);
             this.articlesToExtractLabel.Name = "articlesToExtractLabel";
             this.articlesToExtractLabel.Size = new System.Drawing.Size(127, 15);
             this.articlesToExtractLabel.TabIndex = 14;
@@ -141,9 +141,9 @@ namespace Pylon2ERP
             | System.Windows.Forms.AnchorStyles.Right)));
             this.articleTreeView.BackColor = System.Drawing.SystemColors.Control;
             this.articleTreeView.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.articleTreeView.Location = new System.Drawing.Point(6, 30);
+            this.articleTreeView.Location = new System.Drawing.Point(9, 30);
             this.articleTreeView.Name = "articleTreeView";
-            this.articleTreeView.Size = new System.Drawing.Size(318, 289);
+            this.articleTreeView.Size = new System.Drawing.Size(305, 289);
             this.articleTreeView.TabIndex = 8;
             // 
             // clearAllButton
@@ -155,7 +155,7 @@ namespace Pylon2ERP
             this.clearAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearAllButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clearAllButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.clearAllButton.Location = new System.Drawing.Point(151, 331);
+            this.clearAllButton.Location = new System.Drawing.Point(154, 331);
             this.clearAllButton.Name = "clearAllButton";
             this.clearAllButton.Size = new System.Drawing.Size(114, 26);
             this.clearAllButton.TabIndex = 11;
@@ -171,7 +171,7 @@ namespace Pylon2ERP
             this.clearSelectionButton.FlatAppearance.BorderSize = 2;
             this.clearSelectionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearSelectionButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clearSelectionButton.Location = new System.Drawing.Point(6, 331);
+            this.clearSelectionButton.Location = new System.Drawing.Point(9, 331);
             this.clearSelectionButton.Name = "clearSelectionButton";
             this.clearSelectionButton.Size = new System.Drawing.Size(130, 26);
             this.clearSelectionButton.TabIndex = 10;
@@ -196,7 +196,7 @@ namespace Pylon2ERP
             this.extractAllButton.FlatAppearance.BorderSize = 2;
             this.extractAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.extractAllButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.extractAllButton.Location = new System.Drawing.Point(302, 331);
+            this.extractAllButton.Location = new System.Drawing.Point(315, 331);
             this.extractAllButton.Name = "extractAllButton";
             this.extractAllButton.Size = new System.Drawing.Size(97, 26);
             this.extractAllButton.TabIndex = 12;
@@ -213,7 +213,7 @@ namespace Pylon2ERP
             this.consolePanel.Controls.Add(this.consoleRichTextBox);
             this.consolePanel.Location = new System.Drawing.Point(0, 30);
             this.consolePanel.Name = "consolePanel";
-            this.consolePanel.Size = new System.Drawing.Size(483, 289);
+            this.consolePanel.Size = new System.Drawing.Size(496, 289);
             this.consolePanel.TabIndex = 16;
             // 
             // startButton
@@ -224,7 +224,7 @@ namespace Pylon2ERP
             this.startButton.FlatAppearance.BorderSize = 2;
             this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.startButton.Location = new System.Drawing.Point(414, 331);
+            this.startButton.Location = new System.Drawing.Point(427, 331);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(69, 26);
             this.startButton.TabIndex = 13;
