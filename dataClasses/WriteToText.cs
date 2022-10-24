@@ -9,12 +9,6 @@ namespace Pylon2ERP.dataClasses {
         public static readonly string BINARY_FILE = "L:\\ΤΟΜ\\Visual Studio IDE Workspace\\Pylon2ERP\\bin\\Debug\\net6.0-windows\\research_charge.bin";
         //public static readonly string BINARY_FILE = "\\\\mantis_new\\usersB\\ΓΚΕΝΤΣΙΟΥ\\Pylon2ERP\\research_charge.bin";
 
-        //diafora paths. xrisimopoio to 1o giati to programma to xrisimopoiei i gkentsiou mono (?)
-        //\\mantis_new\usersB\ΓΚΕΝΤΣΙΟΥ\Pylon2ERP\research_charge.bin
-        //\\gserver-new\KOINO\TOM\Pylon2ERP\research_charge.bin
-        //C:\Program Files (x86)\Pylon2ERP\research_charge.bin
-        //L:\ΤΟΜ\Visual Studio IDE Workspace\Pylon2ERP\bin\Debug\net6.0-windows\research_charge.bin
-
         //constructor
         public WriteToText()
         {
