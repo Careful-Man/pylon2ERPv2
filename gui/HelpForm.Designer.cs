@@ -77,7 +77,7 @@
             treeNode20,
             treeNode21,
             treeNode22});
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Πεδία", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Παράμετροι Άρθρου", new System.Windows.Forms.TreeNode[] {
             treeNode7,
             treeNode11,
             treeNode18,
@@ -114,125 +114,137 @@
             System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Άρθρα και Κονσόλα", new System.Windows.Forms.TreeNode[] {
             treeNode31,
             treeNode36});
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Ελέγχει την ορθότητα των δεδομένων που έχει εισάγει ο χρήστης.");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Αν υπάρχουν σφάλματα, εμφανίζει σχετικό μήνυμα στην κονσόλα ή σε παράθυρο διαλόγο" +
-        "υ");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Αν δεν βρει σφάλμα, ανοίγει το αρχείο προς ανάγνωση.");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Η πορεία της ανάγνωσης του αρχείου φαίνεται στην κονσόλα μηνυμάτων.");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Είναι το μόνο πλήκτρο το οποίο όσες φορές και να πατηθεί και ότι και να γίνει αφο" +
-        "ύ πατηθεί, η πράξη που κάνει μπορεί να διορθωθεί/αντιστραφεί.");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Είναι το μόνο πλήκτρο που δεν εμφανίζει παράθυρο διαλόγου όταν πατηθεί.");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Τα υπόλοιπα πλήκτρα εμφανίζουν παράθυρα διαλόγου όταν πατηθούν και κάνουν μη αντι" +
-        "στέψιμες πράξεις.");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εκκίνηση\"", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Όταν πατηθεί αυτό το πλήκτρο εμφανίζει ένα παράθυρο διαλόγου που επιτρέπει στον χ" +
+        "ρήστη");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("να επιλέξει το αρχείο που θα διαβάσει το πρόγραμμα. Το αρχείο θα διαβαστεί μόνο α" +
+        "ν ο χρήστης");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("πατήσει το πλήκτρο \"Εκκίνηση\"");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Πλήκτρο \". . .\"", new System.Windows.Forms.TreeNode[] {
             treeNode38,
             treeNode39,
-            treeNode40,
-            treeNode41,
+            treeNode40});
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Ελέγχει την ορθότητα των δεδομένων που έχει εισάγει ο χρήστης.");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Αν υπάρχουν σφάλματα, εμφανίζει σχετικό μήνυμα στην κονσόλα ή σε παράθυρο διαλόγο" +
+        "υ");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Αν δεν βρει σφάλμα, ανοίγει το αρχείο προς ανάγνωση.");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Η πορεία της ανάγνωσης του αρχείου φαίνεται στην κονσόλα μηνυμάτων.");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Είναι το μόνο πλήκτρο το οποίο όσες φορές και να πατηθεί και ότι και να γίνει αφο" +
+        "ύ πατηθεί, η πράξη που κάνει μπορεί να διορθωθεί/αντιστραφεί.");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Είναι το μόνο πλήκτρο που δεν εμφανίζει παράθυρο διαλόγου όταν πατηθεί.");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Τα υπόλοιπα πλήκτρα εμφανίζουν παράθυρα διαλόγου όταν πατηθούν και κάνουν μη αντι" +
+        "στέψιμες πράξεις.");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εκκίνηση\"", new System.Windows.Forms.TreeNode[] {
             treeNode42,
             treeNode43,
-            treeNode44});
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει εξαγω" +
-        "γή των άρθρων που διαβάστηκαν.");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Μόνο αν πατήσει \"Ναι\", ο χρήστης προχωράει στην εξαγωγή των άρθρων.");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαβάζει όλα τα άρθρα που βρίσκονται στη" +
-        "ν δομή \"Άρθρα προς εξαγωγή\".");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Αν έχουν διαβαστεί άρθρα τα οποία στην πορεία διαγράφηκαν από τον χρήστη, δεν θα " +
-        "συμπεριληφθουν στην εξαγωγή.");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("με όνομα κάτι.txt");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Το πρόγραμμα δημιουργεί ένα αρχείο με όλα τα άρθρα που εξήχθησαν.", new System.Windows.Forms.TreeNode[] {
-            treeNode51});
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("με όνομα κάτι_ASCII.txt");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Μετά, το πρόγραμμα παίρνει το αρχείο που μόλις δημιούργησε και αλλάζει την κωδικο" +
-        "ποίησή του ώστε να μπορεί να το διαβάσει το ERP.", new System.Windows.Forms.TreeNode[] {
-            treeNode53});
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Αφού ολοκληρωθεί αυτή η διαδικασία επιτυχώς, το πρόγραμμα εμφανίζει σχετικό παράθ" +
-        "υρο διαλόγου.");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Διαγράφει το αρχείο κάτι.txt και αφήνει το κάτι_ASCII.txt προς καταχώρηση στο ERP" +
-        "");
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("ΕΝΗΜΕΡΩΣΗ 12/10/22: Αφού δημιουργήσει τα 2 αρχεία, το πρόγραμμα διαγράφει το αρχε" +
-        "ίο που δεν προορίζεται προς εισαγωγή στο ERP.", new System.Windows.Forms.TreeNode[] {
-            treeNode56});
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εξαγωγή Όλων\"", new System.Windows.Forms.TreeNode[] {
+            treeNode44,
+            treeNode45,
             treeNode46,
             treeNode47,
-            treeNode48,
-            treeNode49,
-            treeNode50,
-            treeNode52,
-            treeNode54,
-            treeNode55,
+            treeNode48});
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει εξαγω" +
+        "γή των άρθρων που διαβάστηκαν.");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Μόνο αν πατήσει \"Ναι\", ο χρήστης προχωράει στην εξαγωγή των άρθρων.");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαβάζει όλα τα άρθρα που βρίσκονται στη" +
+        "ν δομή \"Άρθρα προς εξαγωγή\".");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Αν έχουν διαβαστεί άρθρα τα οποία στην πορεία διαγράφηκαν από τον χρήστη, δεν θα " +
+        "συμπεριληφθουν στην εξαγωγή.");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("με όνομα κάτι.txt");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Το πρόγραμμα δημιουργεί ένα αρχείο με όλα τα άρθρα που εξήχθησαν.", new System.Windows.Forms.TreeNode[] {
+            treeNode55});
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("με όνομα κάτι_ASCII.txt");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Μετά, το πρόγραμμα παίρνει το αρχείο που μόλις δημιούργησε και αλλάζει την κωδικο" +
+        "ποίησή του ώστε να μπορεί να το διαβάσει το ERP.", new System.Windows.Forms.TreeNode[] {
             treeNode57});
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpForm));
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode(resources.GetString("helpTreeView.Nodes"));
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή όλων αυτών των δεδομένων" +
-        ".");
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.");
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει όλα τα δεδομένα που διάβασε κα" +
-        "ι τα αρχεία που δημιούργησε για καταχώρηση στο ERP.");
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εκκαθάριση Όλων\"", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Αφού ολοκληρωθεί αυτή η διαδικασία επιτυχώς, το πρόγραμμα εμφανίζει σχετικό παράθ" +
+        "υρο διαλόγου.");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Διαγράφει το αρχείο κάτι.txt και αφήνει το κάτι_ASCII.txt προς καταχώρηση στο ERP" +
+        "");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("ΕΝΗΜΕΡΩΣΗ 12/10/22: Αφού δημιουργήσει τα 2 αρχεία, το πρόγραμμα διαγράφει το αρχε" +
+        "ίο που δεν προορίζεται προς εισαγωγή στο ERP.", new System.Windows.Forms.TreeNode[] {
+            treeNode60});
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εξαγωγή Όλων\"", new System.Windows.Forms.TreeNode[] {
+            treeNode50,
+            treeNode51,
+            treeNode52,
+            treeNode53,
+            treeNode54,
+            treeNode56,
+            treeNode58,
             treeNode59,
-            treeNode60,
-            treeNode61,
-            treeNode62});
-            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει διαγρ" +
-        "αφή του επιλεγμένου άρθρου από την δομή \"Άρθρα προς εξαγωγή\".");
-            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Το πρόγραμμα δεν επιτρέπει διαγραφή άλλων δεδομένων από την δομή, παρά μόνο άρθρα" +
+            treeNode61});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpForm));
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode(resources.GetString("helpTreeView.Nodes"));
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή όλων αυτών των δεδομένων" +
         ".");
-            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή του άρθρου.");
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει το άρθρο απ\' την δομή και όταν" +
-        " ο χρήστης πιέσει το πλήκτρο \"Εξαγωγή Όλων\" το διαγραμμένο άρθρο δεν θα συμπεριλ" +
-        "ηφθεί στην εξαγωγή. ");
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εκκαθάριση Επιλογής\"", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει όλα τα δεδομένα που διάβασε κα" +
+        "ι τα αρχεία που δημιούργησε για καταχώρηση στο ERP.");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εκκαθάριση Όλων\"", new System.Windows.Forms.TreeNode[] {
+            treeNode63,
             treeNode64,
             treeNode65,
-            treeNode66,
-            treeNode67,
-            treeNode68});
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Εμφανίζει αυτό το παράθυρο.");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Εξηγεί αναλυτικά την λειτουργεία του προγράμματος.");
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Περιέχει τις διάφορες αλλαγές που γίνονται στο πρόγραμμα που επηρρεάζουν την εμπε" +
-        "ιρία χρήστη.");
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Βοήθεια\"", new System.Windows.Forms.TreeNode[] {
+            treeNode66});
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει διαγρ" +
+        "αφή του επιλεγμένου άρθρου από την δομή \"Άρθρα προς εξαγωγή\".");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Το πρόγραμμα δεν επιτρέπει διαγραφή άλλων δεδομένων από την δομή, παρά μόνο άρθρα" +
+        ".");
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή του άρθρου.");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει το άρθρο απ\' την δομή και όταν" +
+        " ο χρήστης πιέσει το πλήκτρο \"Εξαγωγή Όλων\" το διαγραμμένο άρθρο δεν θα συμπεριλ" +
+        "ηφθεί στην εξαγωγή. ");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Εκκαθάριση Επιλογής\"", new System.Windows.Forms.TreeNode[] {
+            treeNode68,
+            treeNode69,
             treeNode70,
             treeNode71,
             treeNode72});
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Πλήκτρα", new System.Windows.Forms.TreeNode[] {
-            treeNode45,
-            treeNode58,
-            treeNode63,
-            treeNode69,
-            treeNode73});
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Για καταχώρηση: ");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Τύπος εγγραφών: Γενική (προεπιλεγμένο)");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Κωδικός Λογ/σμού: 13");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Αιτιολογία: 55");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Περιοχή: επιλογή του αρχείου κάτι_ASCII.txt");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Προσοχή! Στο παράθυρο επιλογής αρχείου πρέπει να οριστεί ως τύπος αρχείου ο .txt " +
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Εμφανίζει αυτό το παράθυρο.");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Εξηγεί αναλυτικά την λειτουργεία του προγράμματος.");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Περιέχει τις διάφορες αλλαγές που γίνονται στο πρόγραμμα που επηρρεάζουν την εμπε" +
+        "ιρία χρήστη.");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Πλήκτρο \"Βοήθεια\"", new System.Windows.Forms.TreeNode[] {
+            treeNode74,
+            treeNode75,
+            treeNode76});
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Πλήκτρα", new System.Windows.Forms.TreeNode[] {
+            treeNode41,
+            treeNode49,
+            treeNode62,
+            treeNode67,
+            treeNode73,
+            treeNode77});
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Για καταχώρηση: ");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Τύπος εγγραφών: Γενική (προεπιλεγμένο)");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Κωδικός Λογ/σμού: 13");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Αιτιολογία: 55");
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Περιοχή: επιλογή του αρχείου κάτι_ASCII.txt");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Προσοχή! Στο παράθυρο επιλογής αρχείου πρέπει να οριστεί ως τύπος αρχείου ο .txt " +
         "(προεπιλογή είναι ο .pni), αλλιώς δεν θα φαίνεται το αρχείο που δημιούργησε το π" +
         "ρόγραμμα.");
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Αν η καταχώρηση είναι επιτυχής το ERP δεν εμφανίζει κάποιο μήνυμα.");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Αν η καταχώρηση είναι επιτυχής, το αρχείο καταχώρησης διαγράφεται.");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Εισαγωγή δεδομένων από αρχείο ASCII", new System.Windows.Forms.TreeNode[] {
-            treeNode76,
-            treeNode77,
-            treeNode78,
-            treeNode79,
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Αν η καταχώρηση είναι επιτυχής το ERP δεν εμφανίζει κάποιο μήνυμα.");
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Αν η καταχώρηση είναι επιτυχής, το αρχείο καταχώρησης διαγράφεται.");
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Εισαγωγή δεδομένων από αρχείο ASCII", new System.Windows.Forms.TreeNode[] {
             treeNode80,
             treeNode81,
-            treeNode82});
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Βοηθητικές εργασίες", new System.Windows.Forms.TreeNode[] {
-            treeNode83});
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Περιοδικές εργασίες", new System.Windows.Forms.TreeNode[] {
-            treeNode84});
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Καταχώρηση αρχείου στο ERP", new System.Windows.Forms.TreeNode[] {
-            treeNode75,
-            treeNode85});
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode(resources.GetString("helpTreeView.Nodes1"));
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Λοιπές σημειώσεις", new System.Windows.Forms.TreeNode[] {
+            treeNode82,
+            treeNode83,
+            treeNode84,
+            treeNode85,
+            treeNode86});
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Βοηθητικές εργασίες", new System.Windows.Forms.TreeNode[] {
             treeNode87});
+            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Περιοδικές εργασίες", new System.Windows.Forms.TreeNode[] {
+            treeNode88});
+            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Καταχώρηση αρχείου στο ERP", new System.Windows.Forms.TreeNode[] {
+            treeNode79,
+            treeNode89});
+            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode(resources.GetString("helpTreeView.Nodes1"));
+            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("ΕΝΗΜΕΡΩΣΗ 24/10/22: Προσθήκη πλήκτρου \"?\" για ευκολότερη αναζήτηση βοήθειας.");
+            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Λοιπές σημειώσεις", new System.Windows.Forms.TreeNode[] {
+            treeNode91,
+            treeNode92});
             this.panel1 = new System.Windows.Forms.Panel();
             this.helpTreeView = new System.Windows.Forms.TreeView();
             this.panel1.SuspendLayout();
@@ -317,7 +329,7 @@
             treeNode23.Name = "Node3";
             treeNode23.Text = "Πεδίο \"Τύπος Άρθρου\"";
             treeNode24.Name = "fieldsNode";
-            treeNode24.Text = "Πεδία";
+            treeNode24.Text = "Παράμετροι Άρθρου";
             treeNode25.Name = "Node25";
             treeNode25.Text = "Ότι άρθρο διαβαστεί εισάγεται σε αυτή την δενδρική δομή.";
             treeNode26.Name = "Node26";
@@ -351,133 +363,145 @@
             treeNode36.Text = "Κονσόλα μηνυμάτων";
             treeNode37.Name = "articlesAndConsoleNode";
             treeNode37.Text = "Άρθρα και Κονσόλα";
-            treeNode38.Name = "Node42";
-            treeNode38.Text = "Ελέγχει την ορθότητα των δεδομένων που έχει εισάγει ο χρήστης.";
-            treeNode39.Name = "Node43";
-            treeNode39.Text = "Αν υπάρχουν σφάλματα, εμφανίζει σχετικό μήνυμα στην κονσόλα ή σε παράθυρο διαλόγο" +
+            treeNode38.Name = "Node86";
+            treeNode38.Text = "Όταν πατηθεί αυτό το πλήκτρο εμφανίζει ένα παράθυρο διαλόγου που επιτρέπει στον χ" +
+    "ρήστη";
+            treeNode39.Name = "Node87";
+            treeNode39.Text = "να επιλέξει το αρχείο που θα διαβάσει το πρόγραμμα. Το αρχείο θα διαβαστεί μόνο α" +
+    "ν ο χρήστης";
+            treeNode40.Name = "Node88";
+            treeNode40.Text = "πατήσει το πλήκτρο \"Εκκίνηση\"";
+            treeNode41.Name = "Node85";
+            treeNode41.Text = "Πλήκτρο \". . .\"";
+            treeNode42.Name = "Node42";
+            treeNode42.Text = "Ελέγχει την ορθότητα των δεδομένων που έχει εισάγει ο χρήστης.";
+            treeNode43.Name = "Node43";
+            treeNode43.Text = "Αν υπάρχουν σφάλματα, εμφανίζει σχετικό μήνυμα στην κονσόλα ή σε παράθυρο διαλόγο" +
     "υ";
-            treeNode40.Name = "Node44";
-            treeNode40.Text = "Αν δεν βρει σφάλμα, ανοίγει το αρχείο προς ανάγνωση.";
-            treeNode41.Name = "Node45";
-            treeNode41.Text = "Η πορεία της ανάγνωσης του αρχείου φαίνεται στην κονσόλα μηνυμάτων.";
-            treeNode42.Name = "Node46";
-            treeNode42.Text = "Είναι το μόνο πλήκτρο το οποίο όσες φορές και να πατηθεί και ότι και να γίνει αφο" +
+            treeNode44.Name = "Node44";
+            treeNode44.Text = "Αν δεν βρει σφάλμα, ανοίγει το αρχείο προς ανάγνωση.";
+            treeNode45.Name = "Node45";
+            treeNode45.Text = "Η πορεία της ανάγνωσης του αρχείου φαίνεται στην κονσόλα μηνυμάτων.";
+            treeNode46.Name = "Node46";
+            treeNode46.Text = "Είναι το μόνο πλήκτρο το οποίο όσες φορές και να πατηθεί και ότι και να γίνει αφο" +
     "ύ πατηθεί, η πράξη που κάνει μπορεί να διορθωθεί/αντιστραφεί.";
-            treeNode43.Name = "Node47";
-            treeNode43.Text = "Είναι το μόνο πλήκτρο που δεν εμφανίζει παράθυρο διαλόγου όταν πατηθεί.";
-            treeNode44.Name = "Node48";
-            treeNode44.Text = "Τα υπόλοιπα πλήκτρα εμφανίζουν παράθυρα διαλόγου όταν πατηθούν και κάνουν μη αντι" +
+            treeNode47.Name = "Node47";
+            treeNode47.Text = "Είναι το μόνο πλήκτρο που δεν εμφανίζει παράθυρο διαλόγου όταν πατηθεί.";
+            treeNode48.Name = "Node48";
+            treeNode48.Text = "Τα υπόλοιπα πλήκτρα εμφανίζουν παράθυρα διαλόγου όταν πατηθούν και κάνουν μη αντι" +
     "στέψιμες πράξεις.";
-            treeNode45.Name = "Node35";
-            treeNode45.Text = "Πλήκτρο \"Εκκίνηση\"";
-            treeNode46.Name = "Node49";
-            treeNode46.Text = "Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει εξαγω" +
+            treeNode49.Name = "Node35";
+            treeNode49.Text = "Πλήκτρο \"Εκκίνηση\"";
+            treeNode50.Name = "Node49";
+            treeNode50.Text = "Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει εξαγω" +
     "γή των άρθρων που διαβάστηκαν.";
-            treeNode47.Name = "Node50";
-            treeNode47.Text = "Μόνο αν πατήσει \"Ναι\", ο χρήστης προχωράει στην εξαγωγή των άρθρων.";
-            treeNode48.Name = "Node51";
-            treeNode48.Text = "Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.";
-            treeNode49.Name = "Node52";
-            treeNode49.Text = "Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαβάζει όλα τα άρθρα που βρίσκονται στη" +
+            treeNode51.Name = "Node50";
+            treeNode51.Text = "Μόνο αν πατήσει \"Ναι\", ο χρήστης προχωράει στην εξαγωγή των άρθρων.";
+            treeNode52.Name = "Node51";
+            treeNode52.Text = "Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.";
+            treeNode53.Name = "Node52";
+            treeNode53.Text = "Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαβάζει όλα τα άρθρα που βρίσκονται στη" +
     "ν δομή \"Άρθρα προς εξαγωγή\".";
-            treeNode50.Name = "Node53";
-            treeNode50.Text = "Αν έχουν διαβαστεί άρθρα τα οποία στην πορεία διαγράφηκαν από τον χρήστη, δεν θα " +
+            treeNode54.Name = "Node53";
+            treeNode54.Text = "Αν έχουν διαβαστεί άρθρα τα οποία στην πορεία διαγράφηκαν από τον χρήστη, δεν θα " +
     "συμπεριληφθουν στην εξαγωγή.";
-            treeNode51.Name = "Node58";
-            treeNode51.Text = "με όνομα κάτι.txt";
-            treeNode52.Name = "Node54";
-            treeNode52.Text = "Το πρόγραμμα δημιουργεί ένα αρχείο με όλα τα άρθρα που εξήχθησαν.";
-            treeNode53.Name = "Node59";
-            treeNode53.Text = "με όνομα κάτι_ASCII.txt";
-            treeNode54.Name = "Node55";
-            treeNode54.Text = "Μετά, το πρόγραμμα παίρνει το αρχείο που μόλις δημιούργησε και αλλάζει την κωδικο" +
+            treeNode55.Name = "Node58";
+            treeNode55.Text = "με όνομα κάτι.txt";
+            treeNode56.Name = "Node54";
+            treeNode56.Text = "Το πρόγραμμα δημιουργεί ένα αρχείο με όλα τα άρθρα που εξήχθησαν.";
+            treeNode57.Name = "Node59";
+            treeNode57.Text = "με όνομα κάτι_ASCII.txt";
+            treeNode58.Name = "Node55";
+            treeNode58.Text = "Μετά, το πρόγραμμα παίρνει το αρχείο που μόλις δημιούργησε και αλλάζει την κωδικο" +
     "ποίησή του ώστε να μπορεί να το διαβάσει το ERP.";
-            treeNode55.Name = "Node56";
-            treeNode55.Text = "Αφού ολοκληρωθεί αυτή η διαδικασία επιτυχώς, το πρόγραμμα εμφανίζει σχετικό παράθ" +
+            treeNode59.Name = "Node56";
+            treeNode59.Text = "Αφού ολοκληρωθεί αυτή η διαδικασία επιτυχώς, το πρόγραμμα εμφανίζει σχετικό παράθ" +
     "υρο διαλόγου.";
-            treeNode56.Name = "Node60";
-            treeNode56.Text = "Διαγράφει το αρχείο κάτι.txt και αφήνει το κάτι_ASCII.txt προς καταχώρηση στο ERP" +
+            treeNode60.Name = "Node60";
+            treeNode60.Text = "Διαγράφει το αρχείο κάτι.txt και αφήνει το κάτι_ASCII.txt προς καταχώρηση στο ERP" +
     "";
-            treeNode57.Name = "Node57";
-            treeNode57.Text = "ΕΝΗΜΕΡΩΣΗ 12/10/22: Αφού δημιουργήσει τα 2 αρχεία, το πρόγραμμα διαγράφει το αρχε" +
+            treeNode61.Name = "Node57";
+            treeNode61.Text = "ΕΝΗΜΕΡΩΣΗ 12/10/22: Αφού δημιουργήσει τα 2 αρχεία, το πρόγραμμα διαγράφει το αρχε" +
     "ίο που δεν προορίζεται προς εισαγωγή στο ERP.";
-            treeNode58.Name = "Node36";
-            treeNode58.Text = "Πλήκτρο \"Εξαγωγή Όλων\"";
-            treeNode59.Name = "Node73";
-            treeNode59.Text = resources.GetString("treeNode59.Text");
-            treeNode60.Name = "Node74";
-            treeNode60.Text = "Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή όλων αυτών των δεδομένων" +
+            treeNode62.Name = "Node36";
+            treeNode62.Text = "Πλήκτρο \"Εξαγωγή Όλων\"";
+            treeNode63.Name = "Node73";
+            treeNode63.Text = resources.GetString("treeNode63.Text");
+            treeNode64.Name = "Node74";
+            treeNode64.Text = "Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή όλων αυτών των δεδομένων" +
     ".";
-            treeNode61.Name = "Node75";
-            treeNode61.Text = "Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.";
-            treeNode62.Name = "Node76";
-            treeNode62.Text = "Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει όλα τα δεδομένα που διάβασε κα" +
+            treeNode65.Name = "Node75";
+            treeNode65.Text = "Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.";
+            treeNode66.Name = "Node76";
+            treeNode66.Text = "Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει όλα τα δεδομένα που διάβασε κα" +
     "ι τα αρχεία που δημιούργησε για καταχώρηση στο ERP.";
-            treeNode63.Name = "Node37";
-            treeNode63.Text = "Πλήκτρο \"Εκκαθάριση Όλων\"";
-            treeNode64.Name = "Node77";
-            treeNode64.Text = "Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει διαγρ" +
+            treeNode67.Name = "Node37";
+            treeNode67.Text = "Πλήκτρο \"Εκκαθάριση Όλων\"";
+            treeNode68.Name = "Node77";
+            treeNode68.Text = "Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει διαγρ" +
     "αφή του επιλεγμένου άρθρου από την δομή \"Άρθρα προς εξαγωγή\".";
-            treeNode65.Name = "Node78";
-            treeNode65.Text = "Το πρόγραμμα δεν επιτρέπει διαγραφή άλλων δεδομένων από την δομή, παρά μόνο άρθρα" +
+            treeNode69.Name = "Node78";
+            treeNode69.Text = "Το πρόγραμμα δεν επιτρέπει διαγραφή άλλων δεδομένων από την δομή, παρά μόνο άρθρα" +
     ".";
-            treeNode66.Name = "Node79";
-            treeNode66.Text = "Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή του άρθρου.";
-            treeNode67.Name = "Node80";
-            treeNode67.Text = "Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.";
-            treeNode68.Name = "Node81";
-            treeNode68.Text = "Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει το άρθρο απ\' την δομή και όταν" +
+            treeNode70.Name = "Node79";
+            treeNode70.Text = "Μόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή του άρθρου.";
+            treeNode71.Name = "Node80";
+            treeNode71.Text = "Οποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη.";
+            treeNode72.Name = "Node81";
+            treeNode72.Text = "Αν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει το άρθρο απ\' την δομή και όταν" +
     " ο χρήστης πιέσει το πλήκτρο \"Εξαγωγή Όλων\" το διαγραμμένο άρθρο δεν θα συμπεριλ" +
     "ηφθεί στην εξαγωγή. ";
-            treeNode69.Name = "Node38";
-            treeNode69.Text = "Πλήκτρο \"Εκκαθάριση Επιλογής\"";
-            treeNode70.Name = "Node40";
-            treeNode70.Text = "Εμφανίζει αυτό το παράθυρο.";
-            treeNode71.Name = "Node82";
-            treeNode71.Text = "Εξηγεί αναλυτικά την λειτουργεία του προγράμματος.";
-            treeNode72.Name = "Node41";
-            treeNode72.Text = "Περιέχει τις διάφορες αλλαγές που γίνονται στο πρόγραμμα που επηρρεάζουν την εμπε" +
+            treeNode73.Name = "Node38";
+            treeNode73.Text = "Πλήκτρο \"Εκκαθάριση Επιλογής\"";
+            treeNode74.Name = "Node40";
+            treeNode74.Text = "Εμφανίζει αυτό το παράθυρο.";
+            treeNode75.Name = "Node82";
+            treeNode75.Text = "Εξηγεί αναλυτικά την λειτουργεία του προγράμματος.";
+            treeNode76.Name = "Node41";
+            treeNode76.Text = "Περιέχει τις διάφορες αλλαγές που γίνονται στο πρόγραμμα που επηρρεάζουν την εμπε" +
     "ιρία χρήστη.";
-            treeNode73.Name = "Node39";
-            treeNode73.Text = "Πλήκτρο \"Βοήθεια\"";
-            treeNode74.Name = "buttonsNode";
-            treeNode74.Text = "Πλήκτρα";
-            treeNode75.Name = "Node62";
-            treeNode75.Text = "Για καταχώρηση: ";
-            treeNode76.Name = "Node66";
-            treeNode76.Text = "Τύπος εγγραφών: Γενική (προεπιλεγμένο)";
-            treeNode77.Name = "Node67";
-            treeNode77.Text = "Κωδικός Λογ/σμού: 13";
-            treeNode78.Name = "Node68";
-            treeNode78.Text = "Αιτιολογία: 55";
-            treeNode79.Name = "Node69";
-            treeNode79.Text = "Περιοχή: επιλογή του αρχείου κάτι_ASCII.txt";
-            treeNode80.Name = "Node70";
-            treeNode80.Text = "Προσοχή! Στο παράθυρο επιλογής αρχείου πρέπει να οριστεί ως τύπος αρχείου ο .txt " +
+            treeNode77.Name = "Node39";
+            treeNode77.Text = "Πλήκτρο \"Βοήθεια\"";
+            treeNode78.Name = "buttonsNode";
+            treeNode78.Text = "Πλήκτρα";
+            treeNode79.Name = "Node62";
+            treeNode79.Text = "Για καταχώρηση: ";
+            treeNode80.Name = "Node66";
+            treeNode80.Text = "Τύπος εγγραφών: Γενική (προεπιλεγμένο)";
+            treeNode81.Name = "Node67";
+            treeNode81.Text = "Κωδικός Λογ/σμού: 13";
+            treeNode82.Name = "Node68";
+            treeNode82.Text = "Αιτιολογία: 55";
+            treeNode83.Name = "Node69";
+            treeNode83.Text = "Περιοχή: επιλογή του αρχείου κάτι_ASCII.txt";
+            treeNode84.Name = "Node70";
+            treeNode84.Text = "Προσοχή! Στο παράθυρο επιλογής αρχείου πρέπει να οριστεί ως τύπος αρχείου ο .txt " +
     "(προεπιλογή είναι ο .pni), αλλιώς δεν θα φαίνεται το αρχείο που δημιούργησε το π" +
     "ρόγραμμα.";
-            treeNode81.Name = "Node71";
-            treeNode81.Text = "Αν η καταχώρηση είναι επιτυχής το ERP δεν εμφανίζει κάποιο μήνυμα.";
-            treeNode82.Name = "Node72";
-            treeNode82.Text = "Αν η καταχώρηση είναι επιτυχής, το αρχείο καταχώρησης διαγράφεται.";
-            treeNode83.Name = "Node65";
-            treeNode83.Text = "Εισαγωγή δεδομένων από αρχείο ASCII";
-            treeNode84.Name = "Node64";
-            treeNode84.Text = "Βοηθητικές εργασίες";
-            treeNode85.Name = "Node63";
-            treeNode85.Text = "Περιοδικές εργασίες";
-            treeNode86.Name = "Node61";
-            treeNode86.Text = "Καταχώρηση αρχείου στο ERP";
-            treeNode87.Name = "Node84";
-            treeNode87.Text = resources.GetString("treeNode87.Text");
-            treeNode88.Name = "Node83";
-            treeNode88.Text = "Λοιπές σημειώσεις";
+            treeNode85.Name = "Node71";
+            treeNode85.Text = "Αν η καταχώρηση είναι επιτυχής το ERP δεν εμφανίζει κάποιο μήνυμα.";
+            treeNode86.Name = "Node72";
+            treeNode86.Text = "Αν η καταχώρηση είναι επιτυχής, το αρχείο καταχώρησης διαγράφεται.";
+            treeNode87.Name = "Node65";
+            treeNode87.Text = "Εισαγωγή δεδομένων από αρχείο ASCII";
+            treeNode88.Name = "Node64";
+            treeNode88.Text = "Βοηθητικές εργασίες";
+            treeNode89.Name = "Node63";
+            treeNode89.Text = "Περιοδικές εργασίες";
+            treeNode90.Name = "Node61";
+            treeNode90.Text = "Καταχώρηση αρχείου στο ERP";
+            treeNode91.Name = "Node84";
+            treeNode91.Text = resources.GetString("treeNode91.Text");
+            treeNode92.Name = "Node89";
+            treeNode92.Text = "ΕΝΗΜΕΡΩΣΗ 24/10/22: Προσθήκη πλήκτρου \"?\" για ευκολότερη αναζήτηση βοήθειας.";
+            treeNode93.Name = "Node83";
+            treeNode93.Text = "Λοιπές σημειώσεις";
             this.helpTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode24,
             treeNode37,
-            treeNode74,
-            treeNode86,
-            treeNode88});
+            treeNode78,
+            treeNode90,
+            treeNode93});
             this.helpTreeView.Size = new System.Drawing.Size(560, 700);
             this.helpTreeView.TabIndex = 0;
             // 

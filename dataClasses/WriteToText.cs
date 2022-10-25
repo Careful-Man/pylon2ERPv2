@@ -8,6 +8,7 @@ namespace Pylon2ERP.dataClasses {
 
         public static readonly string BINARY_FILE = "L:\\ΤΟΜ\\Visual Studio IDE Workspace\\Pylon2ERP\\bin\\Debug\\net6.0-windows\\research_charge.bin";
         //public static readonly string BINARY_FILE = "\\\\mantis_new\\usersB\\ΓΚΕΝΤΣΙΟΥ\\Pylon2ERP\\research_charge.bin";
+        public static readonly string PYLON2ERP_MINIMA = "Pylon2ERP - Μήνυμα";
 
         //constructor
         public WriteToText()
@@ -48,8 +49,8 @@ namespace Pylon2ERP.dataClasses {
         private static void promptInitializationError()
         {
             DialogResult drOk = MessageBox.Show(
-                    "Σφάλμα αρχικοποίησης. Δεν βρέθηκε το αρχείο research_charge.bin",
-                    "Pylon2ERP - Μήνυμα",
+                     "Σφάλμα αρχικοποίησης. Δεν βρέθηκε το αρχείο research_charge.bin",
+                     PYLON2ERP_MINIMA,
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Error,
                      MessageBoxDefaultButton.Button2);
@@ -133,8 +134,8 @@ namespace Pylon2ERP.dataClasses {
                     messageBoxString += art.ArticleDescription + ".\n";
                 }
                 DialogResult drOk = MessageBox.Show(
-                    "Εξαγωγή επιτυχής. Άρθρα που εξήχθησαν:\n\n" + messageBoxString,
-                    "Pylon2ERP - Μήνυμα",
+                     "Εξαγωγή επιτυχής. Άρθρα που εξήχθησαν:\n\n" + messageBoxString,
+                     PYLON2ERP_MINIMA,
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information,
                      MessageBoxDefaultButton.Button2);
@@ -151,8 +152,8 @@ namespace Pylon2ERP.dataClasses {
                 File.Delete(p2erpExportASCIIPath);
                 mf.clearCoast();
                 DialogResult drOk = MessageBox.Show(
-                    "Διαγραφή επιτυχής.",
-                    "Pylon2ERP - Μήνυμα",
+                     "Διαγραφή επιτυχής.",
+                     PYLON2ERP_MINIMA,
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information,
                      MessageBoxDefaultButton.Button2);

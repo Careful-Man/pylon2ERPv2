@@ -19,9 +19,11 @@ namespace Pylon2ERP
         //domi pou xrisimopoio gia na grapso ta arthra sto arxeio
         private List<Article> treeArticles;
 
+        private static bool getHelpClicked = false;
+
         public static readonly string SEPERATOR = "###################################################################################################";
         public static readonly string DASHES = "\n---------------------------------------------------------------------------------------------------";
-        
+        public static readonly string PYLON2ERP_VOITHIA = "Pylon2ERP - Βοήθεια για ";
 
         //constructor
         public MainForm()
@@ -153,16 +155,28 @@ namespace Pylon2ERP
 
 
         //Event handling
-        private void openFileDialogButton_Click(object sender, EventArgs e)
-        {//otan patao to ... anoigei file explorer
-            openFilePicker = new OpenFileDialog();
-            openFilePicker.Filter = "Txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            openFilePicker.Title = "Επιλέξτε ένα αρχείο εξαγωγής Pylon";
+        private void openFileDialogButton_Click(object sender, EventArgs e) {//otan patao to ... anoigei file explorer
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Όταν πατηθεί αυτό το πλήκτρο εμφανίζει ένα παράθυρο διαλόγου που επιτρέπει στον χρήστη" +
+                     "\n να επιλέξει το αρχείο που θα διαβάσει το πρόγραμμα. Το αρχείο θα διαβαστεί μόνο αν ο χρήστης" +
+                     "\n πατήσει το πλήκτρο \"Εκκίνηση\"" +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πλήκτρο \". . .\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            } else {
+                openFilePicker = new OpenFileDialog();
+                openFilePicker.Filter = "Txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFilePicker.Title = "Επιλέξτε ένα αρχείο εξαγωγής Pylon";
 
-            if (openFilePicker.ShowDialog() == DialogResult.OK)
-            {
-                this.setFilePathToTextBox(openFilePicker.FileName);
+                if (openFilePicker.ShowDialog() == DialogResult.OK) {
+                    this.setFilePathToTextBox(openFilePicker.FileName);
+                }
             }
+            
         }
 
         private void axTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -249,217 +263,258 @@ namespace Pylon2ERP
 
         private void clearSelectionButton_Click(object sender, EventArgs e)
         {//methodos pou paei kai diagrafei apo tin lista ton arthron, to arthro pou diagrafei o xristis apo to dentro
-            DialogResult drYesNo = MessageBox.Show(
-                "Διαγραφή του επιλεγμένου άρθρου;",
-                "Pylon2ERP - Μήνυμα",
-            MessageBoxButtons.YesNoCancel,
-            MessageBoxIcon.Question);
-            if (drYesNo == DialogResult.Yes)
-            {
-                try
-                {
-                    bool found = false;
-                    foreach(Article art in treeArticles)
-                    {
-                        if(art.ArticleDescription == articleTreeView.SelectedNode.Text)
-                        {
-                            found = false;
-                            TreeNodeCollection tnc = articleTreeView.SelectedNode.Nodes;
-                            foreach(TreeNode tn in tnc)
-                            {
-                                foreach(Account acc in art.ArticleAccounts)
-                                {
-                                    if(tn.Text == acc.AccountCodeCorrected)
-                                        found = true;
-                                }
-                                break;
-                            }
-                            if (found)
-                            {
-                                if (treeArticles.Remove(art))//edo afaireitai apo tin lista ton arthron
-                                {
-                                    //edo afaireitai apo to treeview
-                                    this.articleTreeView.Nodes.Remove(this.articleTreeView.SelectedNode);
-                                    this.articleTreeView.SelectedNode = null;
-                                    this.articleTreeView.TabStop = false;
-
-                                    DialogResult drOk = MessageBox.Show(
-                                        "Διαγραφή άρθρου επιτυχής. Διαγράφηκε το άρθρο:\n" + art.ArticleDescription + ".",
-                                        "Pylon2ERP - Μήνυμα",
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Information,
-                                         MessageBoxDefaultButton.Button2);
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει διαγραφή του επιλεγμένου άρθρου από την δομή \"’ρθρα προς εξαγωγή\"." +
+                     "\nΤο πρόγραμμα δεν επιτρέπει διαγραφή άλλων δεδομένων από την δομή, παρά μόνο άρθρα." +
+                     "\nΜόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή του άρθρου." +
+                     "\nΟποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη." +
+                     "\nΑν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει το άρθρο απ' την δομή και όταν ο χρήστης πιέσει το πλήκτρο \"Εξαγωγή Όλων\" το διαγραμμένο άρθρο δεν θα συμπεριληφθεί στην εξαγωγή." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πλήκτρο \"Εκκαθάριση Επιλογής\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            } else {
+                DialogResult drYesNo = MessageBox.Show(
+                    "Διαγραφή του επιλεγμένου άρθρου;",
+                    "Pylon2ERP - Μήνυμα",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+                if (drYesNo == DialogResult.Yes) {
+                    try {
+                        bool found = false;
+                        foreach (Article art in treeArticles) {
+                            if (art.ArticleDescription == articleTreeView.SelectedNode.Text) {
+                                found = false;
+                                TreeNodeCollection tnc = articleTreeView.SelectedNode.Nodes;
+                                foreach (TreeNode tn in tnc) {
+                                    foreach (Account acc in art.ArticleAccounts) {
+                                        if (tn.Text == acc.AccountCodeCorrected)
+                                            found = true;
+                                    }
                                     break;
+                                }
+                                if (found) {
+                                    if (treeArticles.Remove(art))//edo afaireitai apo tin lista ton arthron
+                                    {
+                                        //edo afaireitai apo to treeview
+                                        this.articleTreeView.Nodes.Remove(this.articleTreeView.SelectedNode);
+                                        this.articleTreeView.SelectedNode = null;
+                                        this.articleTreeView.TabStop = false;
+
+                                        DialogResult drOk = MessageBox.Show(
+                                            "Διαγραφή άρθρου επιτυχής. Διαγράφηκε το άρθρο:\n" + art.ArticleDescription + ".",
+                                            "Pylon2ERP - Μήνυμα",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Information,
+                                             MessageBoxDefaultButton.Button2);
+                                        break;
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (!found)
-                    {
+                        if (!found) {
+                            DialogResult drOk = MessageBox.Show(
+                                            "Δεν είναι δυνατή η διαγραφή τις επιλογής \n" + articleTreeView.SelectedNode.Text + "\nΕπιτρέπεται μόνο η διαγραφή άρθρων.",
+                                            "Pylon2ERP - Μήνυμα",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Information,
+                                             MessageBoxDefaultButton.Button2);
+                        }
+                    } catch (NullReferenceException nre) {
                         DialogResult drOk = MessageBox.Show(
-                                        "Δεν είναι δυνατή η διαγραφή τις επιλογής \n" + articleTreeView.SelectedNode.Text + "\nΕπιτρέπεται μόνο η διαγραφή άρθρων.",
-                                        "Pylon2ERP - Μήνυμα",
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Information,
-                                         MessageBoxDefaultButton.Button2);
+                            "Δεν έχει επιλεχθεί άρθρο.",
+                            "Pylon2ERP - Μήνυμα",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Information,
+                             MessageBoxDefaultButton.Button2);
+                    } catch (InvalidOperationException ioe) {
+                        DialogResult drOk = MessageBox.Show(
+                            "\n" + ioe.Message,
+                            "Pylon2ERP - Μήνυμα",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error,
+                             MessageBoxDefaultButton.Button2);
                     }
-                }
-                catch (NullReferenceException nre)
-                {
-                    DialogResult drOk = MessageBox.Show(
-                        "Δεν έχει επιλεχθεί άρθρο.",
-                        "Pylon2ERP - Μήνυμα",
-                         MessageBoxButtons.OK,
-                         MessageBoxIcon.Information,
-                         MessageBoxDefaultButton.Button2);
-                }
-                catch (InvalidOperationException ioe)
-                {
-                    DialogResult drOk = MessageBox.Show(
-                        "\n" + ioe.Message,
-                        "Pylon2ERP - Μήνυμα",
-                         MessageBoxButtons.OK,
-                         MessageBoxIcon.Error,
-                         MessageBoxDefaultButton.Button2);
                 }
             }
         }
 
         private void clearAllButton_Click(object sender, EventArgs e)
         {//katharizei ta panta plires wipe xxx tha pethanoume oloi
-            DialogResult drYesNo = MessageBox.Show(
-                "Διαγραφή των αρχείων καταχώρησης και του περιεχομένου της κονσόλας;\n" +
-                "Αυτή η πράξη είναι μη αντιστρέψιμη.",
-                "Pylon2ERP - Μήνυμα",
-            MessageBoxButtons.YesNoCancel,
-            MessageBoxIcon.Warning);
-            if (drYesNo == DialogResult.Yes)
-                WriteToText.deleteP2ERPTextFile(this);
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει διαγραφή των άρθρων που διαβάστηκαν, των μηνυμάτων κονσόλας, των δεδομένων στην περιοχή \"Παράμετροι άρθρου\" και των αρχείων που δημιουργεί το πρόγραμμα." +
+                     "\nΜόνο αν πατήσει \"Ναι\" ο χρήστης, προχωράει στην διαγραφή όλων αυτών των δεδομένων." +
+                     "\nΟποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη." +
+                     "\nΑν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαγράφει όλα τα δεδομένα που διάβασε και τα αρχεία που δημιούργησε για καταχώρηση στο ERP." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πλήκτρο \"Εκκαθάριση Όλων\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            } else {
+                DialogResult drYesNo = MessageBox.Show(
+                    "Διαγραφή των αρχείων καταχώρησης και του περιεχομένου της κονσόλας;\n" +
+                    "Αυτή η πράξη είναι μη αντιστρέψιμη.",
+                    "Pylon2ERP - Μήνυμα",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Warning);
+                if (drYesNo == DialogResult.Yes)
+                    WriteToText.deleteP2ERPTextFile(this);
+            }
         }
 
         private void extractAllButton_Click(object sender, EventArgs e)
         {//otan o xristis pataei eksagogi olon, eksagei ta arthra tis voithitikis listas aftis tis klasis, sto arxeio
-            DialogResult drYesNo = MessageBox.Show(
-                "Εξαγωγή των άρθρων σε αρχείο .txt;",
-                "Pylon2ERP - Μήνυμα",
-            MessageBoxButtons.YesNoCancel,
-            MessageBoxIcon.Question);
-            if (drYesNo == DialogResult.Yes && articleTreeView.Nodes.Count != 0)
-            {//an patisei o xristis nai kai iparxoun arthra pros kataxorisi, kataxorise ta
-                WriteToText.appendGLArticlesToP2ERPtxt(this.treeArticles, this);
-            } else if(drYesNo == DialogResult.Yes && articleTreeView.Nodes.Count == 0)
-            {//an patisi nai kai den iparxoun arthra pros kataxorisi, emfanise sxetiko minima
+            if (getHelpClicked) {
                 DialogResult drOk = MessageBox.Show(
-                    "Δεν υπάρχουν άρθρα προς εξαγωγή.",
-                    "Pylon2ERP - Μήνυμα",
+                     "Αφού πατηθεί εμφανίζει παράθυρο διαλόγου για το αν θέλει ο χρήστης να κάνει εξαγωγή των άρθρων που διαβάστηκαν." +
+                     "\nΜόνο αν πατήσει \"Ναι\", ο χρήστης προχωράει στην εξαγωγή των άρθρων." +
+                     "\nΟποιοδήποτε άλλο πλήκτρο στο παράθυρο διαλόγου ακυρώνει την πράξη." +
+                     "\nΑν ο χρήστης πατήσει \"Ναι\", το πρόγραμμα διαβάζει όλα τα άρθρα που βρίσκονται στην δομή \"’ρθρα προς εξαγωγή\"." +
+                     "\nΑν έχουν διαβαστεί άρθρα τα οποία στην πορεία διαγράφηκαν από τον χρήστη, δεν θα συμπεριληφθουν στην εξαγωγή." +
+                     "\nΤο πρόγραμμα δημιουργεί ένα αρχείο με όλα τα άρθρα που εξήχθησαν, με όνομα κάτι.txt" +
+                     "\nΜετά, το πρόγραμμα παίρνει το αρχείο που μόλις δημιούργησε και αλλάζει την κωδικοποίησή του ώστε να μπορεί να το διαβάσει το ERP, με όνομα κάτι_ASCII.txt" +
+                     "\nΑφού ολοκληρωθεί αυτή η διαδικασία επιτυχώς, το πρόγραμμα εμφανίζει σχετικό παράθυρο διαλόγου." +
+                     "\nΕΝΗΜΕΡΩΣΗ 12/10/22: Αφού δημιουργήσει τα 2 αρχεία, το πρόγραμμα διαγράφει το αρχείο που δεν προορίζεται προς εισαγωγή στο ERP." +
+                     "\nΕΝΗΜΕΡΩΣΗ 12/10/22: Διαγράφει το αρχείο κάτι.txt και αφήνει το κάτι_ASCII.txt προς καταχώρηση στο ERP" +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πλήκτρο \"Εξαγωγή Όλων\"",
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information,
                      MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            } else {
+                DialogResult drYesNo = MessageBox.Show(
+                    "Εξαγωγή των άρθρων σε αρχείο .txt;",
+                    "Pylon2ERP - Μήνυμα",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+                if (drYesNo == DialogResult.Yes && articleTreeView.Nodes.Count != 0) {//an patisei o xristis nai kai iparxoun arthra pros kataxorisi, kataxorise ta
+                    WriteToText.appendGLArticlesToP2ERPtxt(this.treeArticles, this);
+                } else if (drYesNo == DialogResult.Yes && articleTreeView.Nodes.Count == 0) {//an patisi nai kai den iparxoun arthra pros kataxorisi, emfanise sxetiko minima
+                    DialogResult drOk = MessageBox.Show(
+                        "Δεν υπάρχουν άρθρα προς εξαγωγή.",
+                        "Pylon2ERP - Μήνυμα",
+                         MessageBoxButtons.OK,
+                         MessageBoxIcon.Information,
+                         MessageBoxDefaultButton.Button2);
+                }
             }
         }
 
         private void startButton_Click(object sender, EventArgs e)
         {//otan o xristis pataei "Ekkinhsh"
-            this.appendToConsoleText(SEPERATOR);
-            error = false;
-            errorMessages = "";
-            try
-            {//prospathise na diavaseis to arxeio pou eisigage o xrhsths
-                StreamReader reader = new StreamReader(filePathTextBox.Text);
-                reader.Close();
-            }
-            catch (ArgumentException ae)
-            {
-                error = true;
-                errorMessages += "Σφάλμα: Το αρχείο δεν βρέθηκε.\n";
-            }
-            if (!branchDictionary.ContainsKey(axTextBox.Text))
-            {//an den vrei ton apothikeftiko xoro
-                error = true;
-                errorMessages += "Σφάλμα: Ο δεδομένος αποθηκευτικός χώρος δεν υπάρχει.\n";
-            }
-            if (articleTypeComboBox.Text == "")
-            {//an den epilegei tipos arthrou
-                error = true;
-                errorMessages += "Σφάλμα: Δεν έχει επιλεχθεί τύπος άρθρου.\n";
-            }
-            //periorismoi hmeromhnias
-            try
-            {//prospathise na elegkseis tin hmeromhnia poy eisigage o xrhsths se sinartisi me ton typo arthrou
-                string date = articleDatePicker.Text;
-                int dayPicked = Int32.Parse(date.Substring(0, 2));//h hmera apo to date pou dialekse
-                int monthPicked = Int32.Parse(date.Substring(3, 2));//o minas apo to date pou dialekse
-                //poses meres exei o minas pou dialekse
-                int daysInMonth = DateTime.DaysInMonth(Int32.Parse("20" + date.Substring(date.Length - 2, 2)), monthPicked);
-                if (articleTypeComboBox.Text == "ΜΙΣΘΟΔΟΣΙΑ")
-                {//arthra misthodosias kataxoroyntai panta teleftea mera toy mina
-                    if (dayPicked != daysInMonth)
-                    {
-                        error = true;
-                        errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
-                                        "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο την τελευταία μέρα του μήνα.\n";
-                    }
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Ελέγχει την ορθότητα των δεδομένων που έχει εισάγει ο χρήστης." +
+                     "\nΑν υπάρχουν σφάλματα, εμφανίζει σχετικό μήνυμα στην κονσόλα ή σε παράθυρο διαλόγου." +
+                     "\nΑν δεν βρει σφάλμα, ανοίγει το αρχείο προς ανάγνωση.\r\nΗ πορεία της ανάγνωσης του αρχείου φαίνεται στην κονσόλα μηνυμάτων." +
+                     "\nΕίναι το μόνο πλήκτρο το οποίο όσες φορές και να πατηθεί και ότι και να γίνει αφού πατηθεί, η πράξη που κάνει μπορεί να διορθωθεί/αντιστραφεί." +
+                     "\nΕίναι το μόνο πλήκτρο που δεν εμφανίζει παράθυρο διαλόγου όταν πατηθεί." +
+                     "\nΤα υπόλοιπα πλήκτρα εμφανίζουν παράθυρα διαλόγου όταν πατηθούν και κάνουν μη αντιστέψιμες πράξεις." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πλήκτρο \"Εκκίνηση\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            } else {
+                this.appendToConsoleText(SEPERATOR);
+                error = false;
+                errorMessages = "";
+                try {//prospathise na diavaseis to arxeio pou eisigage o xrhsths
+                    StreamReader reader = new StreamReader(filePathTextBox.Text);
+                    reader.Close();
+                } catch (ArgumentException ae) {
+                    error = true;
+                    errorMessages += "Σφάλμα: Το αρχείο δεν βρέθηκε.\n";
                 }
-                else if (articleTypeComboBox.Text == "ΕΠΙΔ. ΑΔΕΙΑΣ")
-                {//arthra epidomatos adeias kataxoroyntai panta proteleftea mera toy mina
-                    if (dayPicked != daysInMonth - 1)
-                    {
-                        error = true;
-                        errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
-                                        "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο την προτελευταία μέρα του μήνα.\n";
-                    }
+                if (!branchDictionary.ContainsKey(axTextBox.Text)) {//an den vrei ton apothikeftiko xoro
+                    error = true;
+                    errorMessages += "Σφάλμα: Ο δεδομένος αποθηκευτικός χώρος δεν υπάρχει.\n";
                 }
-                else if (articleTypeComboBox.Text == "ΑΠΟΖ. ΑΔΕΙΑΣ")
-                {//arthra apozimiosis adeias kataxorountai panta pro proteleftea mera toy mina
-                    if (dayPicked != daysInMonth - 2)
-                    {
-                        error = true;
-                        errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
-                                        "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο την προ-προτελευταία μέρα του μήνα.\n";
-                    }
+                if (articleTypeComboBox.Text == "") {//an den epilegei tipos arthrou
+                    error = true;
+                    errorMessages += "Σφάλμα: Δεν έχει επιλεχθεί τύπος άρθρου.\n";
                 }
-                else if (articleTypeComboBox.Text == "ΔΩΡΟ ΠΑΣΧΑ")
-                {//to pasxa einai kiniti eorti. Pasxa einai i kiriaki meta tin panselino tou martiou,
-                 //ara peftei aprilio. mporei omos na pesei kai maio epeidi giati oxi
-                    if (monthPicked != 4 && monthPicked != 5)
-                    {//ara afino na kataxorisei se aprilio kai maio
-                        error = true;
-                        errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
-                                        "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο στους μήνες Απρίλιο ή Μάιο.\n";
+                //periorismoi hmeromhnias
+                try {//prospathise na elegkseis tin hmeromhnia poy eisigage o xrhsths se sinartisi me ton typo arthrou
+                    string date = articleDatePicker.Text;
+                    int dayPicked = Int32.Parse(date.Substring(0, 2));//h hmera apo to date pou dialekse
+                    int monthPicked = Int32.Parse(date.Substring(3, 2));//o minas apo to date pou dialekse
+                                                                        //poses meres exei o minas pou dialekse
+                    int daysInMonth = DateTime.DaysInMonth(Int32.Parse("20" + date.Substring(date.Length - 2, 2)), monthPicked);
+                    if (articleTypeComboBox.Text == "ΜΙΣΘΟΔΟΣΙΑ") {//arthra misthodosias kataxoroyntai panta teleftea mera toy mina
+                        if (dayPicked != daysInMonth) {
+                            error = true;
+                            errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
+                                            "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο την τελευταία μέρα του μήνα.\n";
+                        }
+                    } else if (articleTypeComboBox.Text == "ΕΠΙΔ. ΑΔΕΙΑΣ") {//arthra epidomatos adeias kataxoroyntai panta proteleftea mera toy mina
+                        if (dayPicked != daysInMonth - 1) {
+                            error = true;
+                            errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
+                                            "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο την προτελευταία μέρα του μήνα.\n";
+                        }
+                    } else if (articleTypeComboBox.Text == "ΑΠΟΖ. ΑΔΕΙΑΣ") {//arthra apozimiosis adeias kataxorountai panta pro proteleftea mera toy mina
+                        if (dayPicked != daysInMonth - 2) {
+                            error = true;
+                            errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
+                                            "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο την προ-προτελευταία μέρα του μήνα.\n";
+                        }
+                    } else if (articleTypeComboBox.Text == "ΔΩΡΟ ΠΑΣΧΑ") {//to pasxa einai kiniti eorti. Pasxa einai i kiriaki meta tin panselino tou martiou,
+                                                                          //ara peftei aprilio. mporei omos na pesei kai maio epeidi giati oxi
+                        if (monthPicked != 4 && monthPicked != 5) {//ara afino na kataxorisei se aprilio kai maio
+                            error = true;
+                            errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
+                                            "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο στους μήνες Απρίλιο ή Μάιο.\n";
+                        }
+                    } else if (articleTypeComboBox.Text == "ΔΩΡΟ ΧΡΙΣΤΟΥΓΕΝΝΩΝ") {//eutuxos xristougenna einai mono ton dekemvrio
+                        if (monthPicked != 12) {//ara afino na kataxorisei se dekemvrio
+                            error = true;
+                            errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
+                                            "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο στον μήνα Δεκέμβριο.\n";
+                        }
                     }
+                } catch (Exception exc) {//an ginei kati poli fail me tin hmeromhnia pias to edo
+                    error = true;
+                    errorMessages += "Σφάλμα: Υπήρξε σφάλμα με την ημερομηνία.\n" + exc.Message;
                 }
-                else if (articleTypeComboBox.Text == "ΔΩΡΟ ΧΡΙΣΤΟΥΓΕΝΝΩΝ")
-                {//eutuxos xristougenna einai mono ton dekemvrio
-                    if (monthPicked != 12)
-                    {//ara afino na kataxorisei se dekemvrio
-                        error = true;
-                        errorMessages = getWrongDateMessage(articleTypeComboBox.Text) +
-                                        "        Ένα άρθρο " + articleTypeComboBox.Text + " μπορεί να καταχωρηθεί μόνο στον μήνα Δεκέμβριο.\n";
-                    }
+                //an meta apo tous elegxous vrike lathos, ektipose ta minimata lathous
+                if (error)
+                    appendToConsoleColoredText(errorMessages, Color.White, Color.Red);
+                else {//allios diavase to arxeio
+                    new ReadPylonFile(filePathTextBox,
+                                        articleDatePicker,
+                                        axTextBox,
+                                        articleTypeComboBox,
+                                        this);
                 }
-            }
-            catch (Exception exc)
-            {//an ginei kati poli fail me tin hmeromhnia pias to edo
-                error = true;
-                errorMessages += "Σφάλμα: Υπήρξε σφάλμα με την ημερομηνία.\n" + exc.Message;
-            }
-            //an meta apo tous elegxous vrike lathos, ektipose ta minimata lathous
-            if (error)
-                appendToConsoleColoredText(errorMessages, Color.White, Color.Red);
-            else
-            {//allios diavase to arxeio
-                new ReadPylonFile(filePathTextBox,
-                                    articleDatePicker,
-                                    axTextBox,
-                                    articleTypeComboBox,
-                                    this);
             }
         }
 
 
         private void helpToolStripStatusLabel_Click(object sender, EventArgs e) {
-            Cursor.Current = Cursors.WaitCursor;
-            new HelpForm().ShowDialog();
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Εμφανίζει ένα παράθυρο βοήθειας." +
+                     "\nΤο παράθυρο αυτό περιέχει όλα τα κείμενα βοήθειας που εμφανίζονται από το πλήκτρο \"?\" καθώς και κάποιες επιπρόσθετες σημειώσεις (πχ πως να γίνει η καταχώρηση του αρχείου στο ERP)." +
+                     "\nΕξηγεί αναλυτικά την λειτουργεία του προγράμματος." +
+                     "\nΠεριέχει τις διάφορες αλλαγές που γίνονται στο πρόγραμμα που επηρρεάζουν την εμπειρία χρήστη." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πλήκτρο \"Βοήθεια\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            } else {
+                new HelpForm().ShowDialog();
+            }
         }
 
         private void helpToolStripStatusLabel_MouseHover(object sender, EventArgs e) {
@@ -475,9 +530,129 @@ namespace Pylon2ERP
         }
 
         private void helpToolStripStatusLabel_MouseLeave(object sender, EventArgs e) {
-            Cursor.Current = Cursors.Default;
             helpToolStripStatusLabel.BackColor = Color.Silver;
         }
 
+        private void questionMarkToolStripStatusLabel_Click(object sender, EventArgs e) {
+            this.Cursor = Cursors.Help;
+            if (!getHelpClicked) {
+                getHelpClicked = true;
+                questionMarkToolStripStatusLabel.BackColor = Color.Gray;
+            } else
+                returnCursorToDefault();
+        }
+
+        private void questionMarkToolStripStatusLabel_MouseDown(object sender, MouseEventArgs e) {
+            questionMarkToolStripStatusLabel.BackColor = Color.Gray;
+        }
+
+
+        //methodoi gia help tooltips
+        private void returnCursorToDefault() {
+            this.Cursor = Cursors.Default;
+            getHelpClicked = false;
+            questionMarkToolStripStatusLabel.BackColor = Color.Silver;
+        }
+
+        private void filePathTextBox_Click(object sender, EventArgs e) {
+            if (getHelpClicked){
+                DialogResult drOk = MessageBox.Show(
+                     "Σε αυτό το πεδίο ο χρήστης εισάγει την διαδρομή του αρχείου Pylon που θα διαβαστεί." +
+                     "\nΗ τιμή του πεδίου αυτού αλλάζει μόνο από το πλήκτρο \"...\"." +
+                     "\nΔεν επιτρέπει στον χρήστη να αλλάξει την τιμή του από το πεδίο αυτό καθαυτό." +
+                     "\nΤο όνομα και η διαδρομή του αρχείου δεν παίζουν κανένα ρόλο στον σχηματισμό του άρθρου που θα κάνει το πρόγραμμα. Το αρχείο χρησιμοποιείται μόνο για να διαβαστούν τα δεδομένα του." +
+                     "\nΤο πρόγραμμα μπορεί να καταλάβει αν το αρχείο που διαβάζεται είναι αρχείο που εξήχθη από το Pylon." +
+                     "\nΑν ένα αρχείο δεν αναγνωριστεί ως αρχείο Pylon, το πρόγραμμα εμφανίζει σχετικό μήνυμα στην κονσόλα μηνυμάτων." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πεδίο \"Διαδρομή αρχείου\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            }
+        }
+
+        private void articleDatePicker_MouseDown(object sender, MouseEventArgs e) {
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Ο χρήστης μπορεί να πατήσει στο βελάκι για να ανοίξει το μενού που του επιτρέπει να διαλέξει μία ημερομηνία." +
+                     "\nΕπιτρέπει επίσης στον χρήστη να πληκτρολογήσει την ημερομηνία που θέλει αν πατήσει κλικ επάνω στην ημερομηνία." +
+                     "\nΠροτού διαβάσει το άρθρο, το πρόγραμμα ελέγχει την ορθότητα της ημερομηνίας για τον επιλεγμένο τύπο άρθρου και αν είναι λανθασμένη, εμφανίζει σχετικό μήνυμα." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πεδίο \"Ημ/νία ’ρθρου\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            }
+        }
+
+        private void axTextBox_Click(object sender, EventArgs e) {
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Επιτρέπει στον χρήστη να πληκτρολογεί μόνο αριθμούς.\r\n" +
+                     "Επιτρέπει στον χρήστη να πληκτρολογήσει μόνο 2 αριθμούς, εκτός αν πληκτρολογήσει \"00\". Σε αυτή την περίπτωση επιτρέπει στον χρήστη να πληκτρολογήσει έναν ακόμη αριμό, 0 ή 1." +
+                     "\nΑν ο κωδικός καταστήματος είναι ορθός, θα εμφανιστεί δεξιά από το πεδίο το όνομα του καταστήματος." +
+                     "\nΕΝΗΜΕΡΩΣΗ 12/10/22: Επιτρέπει την επιλογή κειμένου στο πεδίο και την εισαγωγή αριθμών χωρίς να χρειαστεί να πατηθεί το πλήκτρο backspace." +
+                     "\nΕΝΗΜΕΡΩΣΗ 12/10/22: Μετονομασία του πεδίου από \"ΑΧ\" σε \"Κατάστημα\"." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πεδίο \"Κατάστημα\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            }
+        }
+
+        private void articleTypeComboBox_Click(object sender, EventArgs e) {
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Επιτρέπει στον χρήστη να διαλέξει τον τύπο του άρθρου που εισάγεται." +
+                     "\nΕπιτρέπει στον χρήστη να εισάγει τιμές μόνο από την αναδυόμενη λίστα." +
+                     "\nΚάθε τύπος άρθρου χρειάζεται συγκεκριμένη ημερομηνία άρθρου." +
+                     "\nΑν η ημερομηνία είναι εσφαλμένη για ένα δεδομένο τύπο άρθρου το πρόγραμμα εμφανίζει σχετικό μήνυμα στην κονσόλα μηνυμάτων και δεν διαβάζει το άρθρο." +
+                     "",
+                     PYLON2ERP_VOITHIA + "το πεδίο \"Τύπος ’ρθρου\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            }
+        }
+
+
+        private void articleTreeView_MouseDown(object sender, MouseEventArgs e) {
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Ότι άρθρο διαβαστεί εισάγεται σε αυτή την δενδρική δομή." +
+                     "\nΠεριέχει τα άρθρα που θα εξαχθούν στο αρχείο που δημιουργεί το πλήκτρο \"Εξαγωγή Όλων\"." +
+                     "\nΕπιτρέπει στον χρήστη να διαγράψει κάποιο άρθρο, επιλέγοντάς το και πιέζοντας το πλήκτρο \"Εκκαθάριση Επιλογής\"." +
+                     "\nΕπιτρέπει μόνο την διαγραφή άρθρων και όχι την διαγραφή λογαριασμών, ποσών κλπ." +
+                     "\nΕπιτρέπει στον χρήστη να διαγράψει όλα τα άρθρα που έχουν διαβαστεί από το πρόγραμμα πιέζοντας το πλήκτρο \"Εκκαθάριση Όλων\"." +
+                     "\nΌτι κίνηση και να έχει γίνει από διάβασμα/διαγραφή άρθρων, όταν ο χρήστης πατήσει εξαγωγή όλων, το πρόγραμμα εξάγει μόνο τα άρθρα που φαίνονται στην δομή \"’ρθρα προς εξαγωγή\".\n" +
+                     "",
+                     PYLON2ERP_VOITHIA + "την περιοχή \"’ρθρα προς εξαγωγή\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            }
+        }
+
+        private void consoleRichTextBox_Click(object sender, EventArgs e) {
+            if (getHelpClicked) {
+                DialogResult drOk = MessageBox.Show(
+                     "Γενικότερα, εμφανίζει ότι συμβαίνει στο παρασκήνιο." +
+                     "\nΕμφανίζει προειδοποιητικά μηνύματα ή μηνύματα λάθους, όπου αυτά χρειάζονται." +
+                     "\nΕμφανίζει διάφορες λεπτομέρειες σχετικά με τα άρθρα που διαβάζει, όπως πχ περιγραφή άρθρου, κωδικούς λογαριασμών, ποσά λογαριασμών κλπ." +
+                     "\nΤο κείμενο της κονσόλας δεν επηρρεάζει το τι θα εξάγει το πρόγραμμα όταν ο χρήστης πιέσει το πλήκτρο \"Εξαγωγή Όλων\".\n" +
+                     "",
+                     PYLON2ERP_VOITHIA + "την περιοχή \"Κονσόλα μηνυμάτων\"",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information,
+                     MessageBoxDefaultButton.Button2);
+                returnCursorToDefault();
+            }
+        }
     }
 }

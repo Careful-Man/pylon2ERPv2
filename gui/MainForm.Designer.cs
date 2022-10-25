@@ -40,13 +40,15 @@ namespace Pylon2ERP
             this.articleTreeView = new System.Windows.Forms.TreeView();
             this.clearAllButton = new System.Windows.Forms.Button();
             this.clearSelectionButton = new System.Windows.Forms.Button();
-            this.consoleMessagesLabel = new System.Windows.Forms.Label();
-            this.extractAllButton = new System.Windows.Forms.Button();
-            this.consolePanel = new System.Windows.Forms.Panel();
+            this.consoleBackPanel = new System.Windows.Forms.Panel();
             this.startButton = new System.Windows.Forms.Button();
+            this.extractAllButton = new System.Windows.Forms.Button();
+            this.consoleMessagesLabel = new System.Windows.Forms.Label();
+            this.consolePanel = new System.Windows.Forms.Panel();
             this.footerStatusStrip = new System.Windows.Forms.StatusStrip();
             this.afroditiToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.helpToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.questionMarkToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.parametersGroupBox = new System.Windows.Forms.GroupBox();
             this.axNameLabel = new System.Windows.Forms.Label();
             this.axTextBox = new System.Windows.Forms.TextBox();
@@ -63,6 +65,7 @@ namespace Pylon2ERP
             this.articlesAndConsoleSplitContainer.Panel1.SuspendLayout();
             this.articlesAndConsoleSplitContainer.Panel2.SuspendLayout();
             this.articlesAndConsoleSplitContainer.SuspendLayout();
+            this.consoleBackPanel.SuspendLayout();
             this.consolePanel.SuspendLayout();
             this.footerStatusStrip.SuspendLayout();
             this.parametersGroupBox.SuspendLayout();
@@ -77,10 +80,11 @@ namespace Pylon2ERP
             this.consoleRichTextBox.Location = new System.Drawing.Point(0, 0);
             this.consoleRichTextBox.Name = "consoleRichTextBox";
             this.consoleRichTextBox.ReadOnly = true;
-            this.consoleRichTextBox.Size = new System.Drawing.Size(494, 287);
+            this.consoleRichTextBox.Size = new System.Drawing.Size(505, 285);
             this.consoleRichTextBox.TabIndex = 9;
             this.consoleRichTextBox.Text = "";
             this.consoleRichTextBox.WordWrap = false;
+            this.consoleRichTextBox.Click += new System.EventHandler(this.consoleRichTextBox_Click);
             this.consoleRichTextBox.TextChanged += new System.EventHandler(this.consoleRichTextBox_TextChanged);
             // 
             // thePanel
@@ -114,10 +118,7 @@ namespace Pylon2ERP
             // 
             // articlesAndConsoleSplitContainer.Panel2
             // 
-            this.articlesAndConsoleSplitContainer.Panel2.Controls.Add(this.consoleMessagesLabel);
-            this.articlesAndConsoleSplitContainer.Panel2.Controls.Add(this.extractAllButton);
-            this.articlesAndConsoleSplitContainer.Panel2.Controls.Add(this.consolePanel);
-            this.articlesAndConsoleSplitContainer.Panel2.Controls.Add(this.startButton);
+            this.articlesAndConsoleSplitContainer.Panel2.Controls.Add(this.consoleBackPanel);
             this.articlesAndConsoleSplitContainer.Panel2MinSize = 400;
             this.articlesAndConsoleSplitContainer.Size = new System.Drawing.Size(834, 375);
             this.articlesAndConsoleSplitContainer.SplitterDistance = 314;
@@ -128,7 +129,7 @@ namespace Pylon2ERP
             // articlesToExtractLabel
             // 
             this.articlesToExtractLabel.AutoSize = true;
-            this.articlesToExtractLabel.Location = new System.Drawing.Point(9, 9);
+            this.articlesToExtractLabel.Location = new System.Drawing.Point(3, 9);
             this.articlesToExtractLabel.Name = "articlesToExtractLabel";
             this.articlesToExtractLabel.Size = new System.Drawing.Size(127, 15);
             this.articlesToExtractLabel.TabIndex = 14;
@@ -141,10 +142,11 @@ namespace Pylon2ERP
             | System.Windows.Forms.AnchorStyles.Right)));
             this.articleTreeView.BackColor = System.Drawing.SystemColors.Control;
             this.articleTreeView.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.articleTreeView.Location = new System.Drawing.Point(9, 30);
+            this.articleTreeView.Location = new System.Drawing.Point(3, 30);
             this.articleTreeView.Name = "articleTreeView";
-            this.articleTreeView.Size = new System.Drawing.Size(305, 289);
+            this.articleTreeView.Size = new System.Drawing.Size(311, 289);
             this.articleTreeView.TabIndex = 8;
+            this.articleTreeView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.articleTreeView_MouseDown);
             // 
             // clearAllButton
             // 
@@ -171,7 +173,7 @@ namespace Pylon2ERP
             this.clearSelectionButton.FlatAppearance.BorderSize = 2;
             this.clearSelectionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearSelectionButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clearSelectionButton.Location = new System.Drawing.Point(9, 331);
+            this.clearSelectionButton.Location = new System.Drawing.Point(3, 331);
             this.clearSelectionButton.Name = "clearSelectionButton";
             this.clearSelectionButton.Size = new System.Drawing.Size(130, 26);
             this.clearSelectionButton.TabIndex = 10;
@@ -179,14 +181,33 @@ namespace Pylon2ERP
             this.clearSelectionButton.UseVisualStyleBackColor = false;
             this.clearSelectionButton.Click += new System.EventHandler(this.clearSelectionButton_Click);
             // 
-            // consoleMessagesLabel
+            // consoleBackPanel
             // 
-            this.consoleMessagesLabel.AutoSize = true;
-            this.consoleMessagesLabel.Location = new System.Drawing.Point(3, 9);
-            this.consoleMessagesLabel.Name = "consoleMessagesLabel";
-            this.consoleMessagesLabel.Size = new System.Drawing.Size(124, 15);
-            this.consoleMessagesLabel.TabIndex = 15;
-            this.consoleMessagesLabel.Text = "Κονσόλα μηνυμάτων:";
+            this.consoleBackPanel.Controls.Add(this.startButton);
+            this.consoleBackPanel.Controls.Add(this.extractAllButton);
+            this.consoleBackPanel.Controls.Add(this.consoleMessagesLabel);
+            this.consoleBackPanel.Controls.Add(this.consolePanel);
+            this.consoleBackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.consoleBackPanel.Location = new System.Drawing.Point(0, 0);
+            this.consoleBackPanel.Name = "consoleBackPanel";
+            this.consoleBackPanel.Size = new System.Drawing.Size(510, 375);
+            this.consoleBackPanel.TabIndex = 17;
+            // 
+            // startButton
+            // 
+            this.startButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.startButton.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.startButton.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.startButton.FlatAppearance.BorderSize = 2;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.startButton.Location = new System.Drawing.Point(438, 331);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(69, 26);
+            this.startButton.TabIndex = 13;
+            this.startButton.Text = "Εκκίνηση";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // extractAllButton
             // 
@@ -196,13 +217,22 @@ namespace Pylon2ERP
             this.extractAllButton.FlatAppearance.BorderSize = 2;
             this.extractAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.extractAllButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.extractAllButton.Location = new System.Drawing.Point(315, 331);
+            this.extractAllButton.Location = new System.Drawing.Point(321, 331);
             this.extractAllButton.Name = "extractAllButton";
             this.extractAllButton.Size = new System.Drawing.Size(97, 26);
             this.extractAllButton.TabIndex = 12;
             this.extractAllButton.Text = "Εξαγωγή όλων";
             this.extractAllButton.UseVisualStyleBackColor = false;
             this.extractAllButton.Click += new System.EventHandler(this.extractAllButton_Click);
+            // 
+            // consoleMessagesLabel
+            // 
+            this.consoleMessagesLabel.AutoSize = true;
+            this.consoleMessagesLabel.Location = new System.Drawing.Point(1, 9);
+            this.consoleMessagesLabel.Name = "consoleMessagesLabel";
+            this.consoleMessagesLabel.Size = new System.Drawing.Size(124, 15);
+            this.consoleMessagesLabel.TabIndex = 15;
+            this.consoleMessagesLabel.Text = "Κονσόλα μηνυμάτων:";
             // 
             // consolePanel
             // 
@@ -213,30 +243,16 @@ namespace Pylon2ERP
             this.consolePanel.Controls.Add(this.consoleRichTextBox);
             this.consolePanel.Location = new System.Drawing.Point(0, 30);
             this.consolePanel.Name = "consolePanel";
-            this.consolePanel.Size = new System.Drawing.Size(496, 289);
+            this.consolePanel.Size = new System.Drawing.Size(507, 287);
             this.consolePanel.TabIndex = 16;
-            // 
-            // startButton
-            // 
-            this.startButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.startButton.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.startButton.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.startButton.FlatAppearance.BorderSize = 2;
-            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.startButton.Location = new System.Drawing.Point(427, 331);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(69, 26);
-            this.startButton.TabIndex = 13;
-            this.startButton.Text = "Εκκίνηση";
-            this.startButton.UseVisualStyleBackColor = false;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // footerStatusStrip
             // 
+            this.footerStatusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.footerStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afroditiToolStripStatusLabel,
-            this.helpToolStripStatusLabel});
+            this.helpToolStripStatusLabel,
+            this.questionMarkToolStripStatusLabel});
             this.footerStatusStrip.Location = new System.Drawing.Point(0, 482);
             this.footerStatusStrip.Name = "footerStatusStrip";
             this.footerStatusStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -267,10 +283,11 @@ namespace Pylon2ERP
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.helpToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
             this.helpToolStripStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.helpToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.helpToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(29, 3, 0, 2);
             this.helpToolStripStatusLabel.Name = "helpToolStripStatusLabel";
             this.helpToolStripStatusLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.helpToolStripStatusLabel.Size = new System.Drawing.Size(64, 24);
+            this.helpToolStripStatusLabel.Size = new System.Drawing.Size(68, 24);
             this.helpToolStripStatusLabel.Text = "Βοήθεια";
             this.helpToolStripStatusLabel.ToolTipText = "Για βοήθεια πατήστε εδώ.";
             this.helpToolStripStatusLabel.Click += new System.EventHandler(this.helpToolStripStatusLabel_Click);
@@ -278,6 +295,25 @@ namespace Pylon2ERP
             this.helpToolStripStatusLabel.MouseLeave += new System.EventHandler(this.helpToolStripStatusLabel_MouseLeave);
             this.helpToolStripStatusLabel.MouseHover += new System.EventHandler(this.helpToolStripStatusLabel_MouseHover);
             this.helpToolStripStatusLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.helpToolStripStatusLabel_MouseUp);
+            // 
+            // questionMarkToolStripStatusLabel
+            // 
+            this.questionMarkToolStripStatusLabel.AutoToolTip = true;
+            this.questionMarkToolStripStatusLabel.BackColor = System.Drawing.Color.Silver;
+            this.questionMarkToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.questionMarkToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
+            this.questionMarkToolStripStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.questionMarkToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.questionMarkToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(20, 3, 0, 2);
+            this.questionMarkToolStripStatusLabel.Name = "questionMarkToolStripStatusLabel";
+            this.questionMarkToolStripStatusLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.questionMarkToolStripStatusLabel.Size = new System.Drawing.Size(26, 24);
+            this.questionMarkToolStripStatusLabel.Text = "?";
+            this.questionMarkToolStripStatusLabel.ToolTipText = "Για βοήθεια πατήστε εδώ και έπειτα στο συστατικό που θέλετε βοήθεια.";
+            this.questionMarkToolStripStatusLabel.Click += new System.EventHandler(this.questionMarkToolStripStatusLabel_Click);
+            this.questionMarkToolStripStatusLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.questionMarkToolStripStatusLabel_MouseDown);
             // 
             // parametersGroupBox
             // 
@@ -295,7 +331,7 @@ namespace Pylon2ERP
             this.parametersGroupBox.Controls.Add(this.openFileDialogButton);
             this.parametersGroupBox.Location = new System.Drawing.Point(3, 3);
             this.parametersGroupBox.Name = "parametersGroupBox";
-            this.parametersGroupBox.Size = new System.Drawing.Size(827, 95);
+            this.parametersGroupBox.Size = new System.Drawing.Size(828, 95);
             this.parametersGroupBox.TabIndex = 0;
             this.parametersGroupBox.TabStop = false;
             this.parametersGroupBox.Text = "Παράμετροι Άρθρου";
@@ -316,6 +352,7 @@ namespace Pylon2ERP
             this.axTextBox.Name = "axTextBox";
             this.axTextBox.Size = new System.Drawing.Size(33, 23);
             this.axTextBox.TabIndex = 6;
+            this.axTextBox.Click += new System.EventHandler(this.axTextBox_Click);
             this.axTextBox.TextChanged += new System.EventHandler(this.axTextBox_TextChanged);
             this.axTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.axTextBox_KeyPress);
             // 
@@ -348,6 +385,7 @@ namespace Pylon2ERP
             this.articleDatePicker.Name = "articleDatePicker";
             this.articleDatePicker.Size = new System.Drawing.Size(116, 23);
             this.articleDatePicker.TabIndex = 4;
+            this.articleDatePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.articleDatePicker_MouseDown);
             // 
             // articleTypeLabel
             // 
@@ -388,8 +426,9 @@ namespace Pylon2ERP
             "ΑΠΟΖ. ΣΥΝΤΑΞΙΟΔΟΤΗΣΗΣ"});
             this.articleTypeComboBox.Location = new System.Drawing.Point(596, 62);
             this.articleTypeComboBox.Name = "articleTypeComboBox";
-            this.articleTypeComboBox.Size = new System.Drawing.Size(227, 23);
+            this.articleTypeComboBox.Size = new System.Drawing.Size(228, 23);
             this.articleTypeComboBox.TabIndex = 7;
+            this.articleTypeComboBox.Click += new System.EventHandler(this.articleTypeComboBox_Click);
             // 
             // filePathTextBox
             // 
@@ -400,13 +439,14 @@ namespace Pylon2ERP
             this.filePathTextBox.Location = new System.Drawing.Point(120, 22);
             this.filePathTextBox.Name = "filePathTextBox";
             this.filePathTextBox.ReadOnly = true;
-            this.filePathTextBox.Size = new System.Drawing.Size(651, 23);
+            this.filePathTextBox.Size = new System.Drawing.Size(652, 23);
             this.filePathTextBox.TabIndex = 1;
+            this.filePathTextBox.Click += new System.EventHandler(this.filePathTextBox_Click);
             // 
             // openFileDialogButton
             // 
             this.openFileDialogButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.openFileDialogButton.Location = new System.Drawing.Point(777, 22);
+            this.openFileDialogButton.Location = new System.Drawing.Point(778, 22);
             this.openFileDialogButton.Name = "openFileDialogButton";
             this.openFileDialogButton.Size = new System.Drawing.Size(46, 22);
             this.openFileDialogButton.TabIndex = 2;
@@ -430,9 +470,10 @@ namespace Pylon2ERP
             this.articlesAndConsoleSplitContainer.Panel1.ResumeLayout(false);
             this.articlesAndConsoleSplitContainer.Panel1.PerformLayout();
             this.articlesAndConsoleSplitContainer.Panel2.ResumeLayout(false);
-            this.articlesAndConsoleSplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.articlesAndConsoleSplitContainer)).EndInit();
             this.articlesAndConsoleSplitContainer.ResumeLayout(false);
+            this.consoleBackPanel.ResumeLayout(false);
+            this.consoleBackPanel.PerformLayout();
             this.consolePanel.ResumeLayout(false);
             this.footerStatusStrip.ResumeLayout(false);
             this.footerStatusStrip.PerformLayout();
@@ -469,5 +510,7 @@ namespace Pylon2ERP
         private ToolStripStatusLabel helpToolStripStatusLabel;
         private SplitContainer articlesAndConsoleSplitContainer;
         private Panel consolePanel;
+        private ToolStripStatusLabel questionMarkToolStripStatusLabel;
+        private Panel consoleBackPanel;
     }
 }
