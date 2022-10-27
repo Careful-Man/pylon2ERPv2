@@ -242,7 +242,7 @@ namespace Pylon2ERP.dataClasses
                             else if (theArticle.ArticleAX.Count() == 3)
                                 thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
 
-                            if (secondDegree == "05" || secondDegree == "0800") {//sad logariasmoi tou sad pylon
+                            if (secondDegree == "05" || secondDegree.Length >= 3) {//sad logariasmoi tou sad pylon
                                 secondDegree = "05";
                                 fourthDegree = "1000";
                                 if (fourthDegree == "1000" || fourthDegree == "0000")
@@ -343,7 +343,7 @@ namespace Pylon2ERP.dataClasses
                             else if (theArticle.ArticleAX.Count() == 3)
                                 thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
 
-                            if (secondDegree == "05" || secondDegree == "0800") {//sad logariasmoi tou sad pylon
+                            if (secondDegree == "05" || secondDegree.Length >= 3) {//sad logariasmoi tou sad pylon
                                 secondDegree = "05";
                                 fourthDegree = "0000";
                                 if (fourthDegree == "1000" || fourthDegree == "0000")
