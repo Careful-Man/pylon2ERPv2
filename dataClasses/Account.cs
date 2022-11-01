@@ -51,9 +51,6 @@ namespace Pylon2ERP.dataClasses
         }
 
 
-
-
-
         //mehtods
         public void getValuesFrom(string thisLine)
         {//voithitiki methodos pou diavazei tis times tis grammis pou diavazetai tora
@@ -102,8 +99,6 @@ namespace Pylon2ERP.dataClasses
                 this.accountIsDebit = true;
             }
         }
-
-
 
         public void generateCorrectAccountCode(Article theArticle)
         {//the magic happens here.

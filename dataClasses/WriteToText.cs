@@ -26,7 +26,6 @@ namespace Pylon2ERP.dataClasses {
             }
         }
 
-
         //helping methods
         private static void saveP2ERPExportPathToBinaryFile(string thePath)
         {//grafei se diadiko arxeio to pou apothikeftikan ta arxeia teleftea fora
@@ -46,8 +45,9 @@ namespace Pylon2ERP.dataClasses {
         {//vres to onoma tou arxikou arxeiou kai vale ena _ASCII sto telos gia na fainetai pxio einai pxio
             return p2erpExportPath.Substring(0, p2erpExportPath.Count() - 4) + "_ASCII.txt";
         }
+
         private static void promptInitializationError()
-        {
+        {//emfanizei intialization error an den brei to research_charge.bin
             DialogResult drOk = MessageBox.Show(
                      "Σφάλμα αρχικοποίησης. Δεν βρέθηκε το αρχείο research_charge.bin",
                      PYLON2ERP_MINIMA,
@@ -55,11 +55,6 @@ namespace Pylon2ERP.dataClasses {
                      MessageBoxIcon.Error,
                      MessageBoxDefaultButton.Button2);
         }
-
-
-
-
-
 
         //create, write, delete P2ERP_export methods
         public static void appendGLArticlesToP2ERPtxt(List<Article> artList, MainForm mf)
