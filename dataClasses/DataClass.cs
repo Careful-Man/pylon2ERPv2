@@ -11,7 +11,6 @@ namespace Pylon2ERP.dataClasses
         protected static Dictionary<string, string> branchesDictionary = new();
         protected static Dictionary<string, string> monthsDictionary = new();
 
-
         public static Dictionary<string, string> populateBranchesDictionary()
         {
             branchesDictionary.Add("01", "ΥΠ. ΧΑΙΡΙΑΝΩΝ");
@@ -40,14 +39,11 @@ namespace Pylon2ERP.dataClasses
 
             branchesDictionary.Add("26", "ΥΠ. ΕΓΝ-ΠΥΛΑΙΑΣ");
 
-
             branchesDictionary.Add("000", "ΕΔΡΑ-ΔΙΟΙΚ.");
             branchesDictionary.Add("001", "ΕΔΡΑ-ΔΙΑΘ.");
 
-
             return branchesDictionary;
         }
-
 
         public static Dictionary<string, string> populateMonthsDictionary()
         {
@@ -64,11 +60,9 @@ namespace Pylon2ERP.dataClasses
             monthsDictionary.Add("11", "ΝΟΕΜΒΡΙΟΥ");
             monthsDictionary.Add("12", "ΔΕΚΕΜΒΡΙΟΥ");
 
-
             return monthsDictionary;
         }
         
-
         public static Dictionary<string, string> getBranchesDictionary()
         {
             return branchesDictionary;

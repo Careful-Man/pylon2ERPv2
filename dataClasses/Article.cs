@@ -36,9 +36,6 @@ namespace Pylon2ERP.dataClasses
         private List<Account> articleAccounts;//domi me tous logariasmous tou arthrou
         public List<Account> ArticleAccounts { get { return articleAccounts; } }
 
-
-
-
         private double debitTotal = 6.2d;
         private double creditTotal = 6.2d;
 
@@ -63,7 +60,6 @@ namespace Pylon2ERP.dataClasses
 
             this.articleAccounts = new List<Account>();
         }
-
 
 
         //other methods
