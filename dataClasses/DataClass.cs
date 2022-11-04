@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pylon2ERP.dataClasses
 {
-    internal class DataClass
+    class DataClass
     {
         protected static Dictionary<string, string> branchesDictionary = new();
         protected static Dictionary<string, string> monthsDictionary = new();
