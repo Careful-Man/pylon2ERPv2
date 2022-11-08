@@ -48,11 +48,11 @@ namespace Pylon2ERP.dataClasses
 
             if (this.articleType == "ΔΩΡΟ ΠΑΣΧΑ" || this.articleType == "ΔΩΡΟ ΧΡΙΣΤΟΥΓΕΝΝΩΝ" || this.articleType == "ΑΠΟΖ. ΑΠΟΛΥΣΗΣ" || this.articleType == "ΑΠΟΖ. ΣΥΝΤΑΞΙΟΔΟΤΗΣΗΣ")
             {//an to arthro einai doro h apoz apolisis h suntaksis min grapseis "mhnos tade" sthn aitiologia toy
-                this.articleDescription = articleType + " " + DataClass.getBranchesDictionary()[articleBranch];
+                this.articleDescription = articleType + " " + DataClass.BranchesDictionary[articleBranch];
             }
             else
             {//allios grapse 
-                this.articleDescription = articleType + " " + DataClass.getBranchesDictionary()[articleBranch] + " " + MHNOS + " " + articleMonth;
+                this.articleDescription = articleType + " " + DataClass.BranchesDictionary[articleBranch] + " " + MHNOS + " " + articleMonth;
             }
             mw.appendToConsoleText(ReadPylonFile.AITIOLOGIA + articleDescription + "\n");
 
@@ -113,7 +113,7 @@ namespace Pylon2ERP.dataClasses
                 mw.appendToConsoleColoredText("Προειδοποίηση: Το άρθρο αυτό ενδέχεται να μην είναι άρθρο " + this.ArticleType + ".", Color.Black, Color.Yellow);  
 
             if(branchWarning)
-                mw.appendToConsoleColoredText("Προειδοποίηση: Το άρθρο αυτό ενδέχεται να μην είναι άρθρο του καταστήματος \"" + this.articleAX + "\".", Color.Black, Color.Yellow);
+                mw.appendToConsoleColoredText("Προειδοποίηση: Αυτό το άρθρο ενδέχεται να μην είναι άρθρο του καταστήματος \"" + DataClass.BranchesDictionary[this.articleAX] + "\".", Color.Black, Color.Yellow);
         }
 
         public void reduceAccounts()

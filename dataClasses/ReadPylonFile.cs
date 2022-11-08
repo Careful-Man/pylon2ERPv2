@@ -49,7 +49,7 @@ namespace Pylon2ERP.dataClasses
                             mf.appendToConsoleText("\nΆνοιγμα του αρχείου  " + filePathTextBox.Text);
                             mf.appendToConsoleText("Τύπος άρθρου: " + articleTypeComboBox.Text);
                             mf.appendToConsoleText("Ημερομηνία άρθρου: " + articleDatePicker.Text);
-                            mf.appendToConsoleText("Κατάστημα άρθρου: " + DataClass.getBranchesDictionary()[axTextBox.Text] + " (" + axTextBox.Text + ")");
+                            mf.appendToConsoleText("Κατάστημα άρθρου: " + DataClass.BranchesDictionary[axTextBox.Text] + " (" + axTextBox.Text + ")");
                             mf.appendToConsoleText(MainForm.DASHES);
                             //diavase to arthro
                             someGLArticle = new Article(articleDatePicker.Text.Replace("/", ""),

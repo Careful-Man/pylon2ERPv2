@@ -148,9 +148,11 @@ namespace Pylon2ERP.dataClasses
                                 if (theArticle.ArticleAX != thirdDegree)
                                     branchWarning = true;
                                 thirdDegree = theArticle.ArticleAX;
-                            } else if (theArticle.ArticleAX.Count() == 3)
+                            } else if (theArticle.ArticleAX.Count() == 3) {
+                                if (theArticle.ArticleAX.Substring(0, 2) != thirdDegree)//an einai gia edra diath kai den einai 00 to thirdDegree
+                                    branchWarning = true;
                                 thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
-
+                            }
                             if (secondDegree == "00")
                             {//allagi 4o-vathmiou gia taktikes apodoxes
                                 if (fourthDegree == "1000" || fourthDegree == "1500" || 
@@ -175,11 +177,15 @@ namespace Pylon2ERP.dataClasses
                     {//arthro epidoma adeias
                         if (this.accountIsDebit && firstDegree == "60")
                         {//xreostikos logariasmos
-                            if (theArticle.ArticleAX.Count() == 2)
+                            if (theArticle.ArticleAX.Count() == 2) {
+                                if (theArticle.ArticleAX != thirdDegree)
+                                    branchWarning = true;
                                 thirdDegree = theArticle.ArticleAX;
-                            else if (theArticle.ArticleAX.Count() == 3)
+                            } else if (theArticle.ArticleAX.Count() == 3) {
+                                if (theArticle.ArticleAX.Substring(0,2) != thirdDegree)//an einai gia edra diath kai den einai 00 to thirdDegree
+                                    branchWarning = true;
                                 thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
-
+                            }
                             if (secondDegree == "00")
                             {
                                 if (fourthDegree == "0700" || fourthDegree == "1700")
@@ -198,11 +204,15 @@ namespace Pylon2ERP.dataClasses
                     {//arthro apozimiosi adeias
                         if (this.accountIsDebit && firstDegree == "60")
                         {//xreostikos logariasmos
-                            if (theArticle.ArticleAX.Count() == 2)
+                            if (theArticle.ArticleAX.Count() == 2) {
+                                if (theArticle.ArticleAX != thirdDegree)
+                                    branchWarning = true;
                                 thirdDegree = theArticle.ArticleAX;
-                            else if (theArticle.ArticleAX.Count() == 3)
+                            } else if (theArticle.ArticleAX.Count() == 3) {
+                                if (theArticle.ArticleAX.Substring(0, 2) != thirdDegree)//an einai gia edra diath kai den einai 00 to thirdDegree
+                                    branchWarning = true;
                                 thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
-
+                            }
                             if (secondDegree == "00")
                             {
                                 if (fourthDegree == "0800" || fourthDegree =="0600")
@@ -214,13 +224,16 @@ namespace Pylon2ERP.dataClasses
                     }
                     else if (theArticle.ArticleType == "ΔΩΡΟ ΠΑΣΧΑ" || theArticle.ArticleType == "ΔΩΡΟ ΧΡΙΣΤΟΥΓΕΝΝΩΝ")
                     {//arthro doro pasxa h doro xristougennon
-                        if (this.accountIsDebit && firstDegree == "60")
-                        {//xreostikos logariasmos
-                            if (theArticle.ArticleAX.Count() == 2)
+                        if (this.accountIsDebit && firstDegree == "60") {//xreostikos logariasmos
+                            if (theArticle.ArticleAX.Count() == 2) { 
+                                if (theArticle.ArticleAX != thirdDegree)
+                                    branchWarning = true;
                                 thirdDegree = theArticle.ArticleAX;
-                            else if (theArticle.ArticleAX.Count() == 3)
+                            } else if (theArticle.ArticleAX.Count() == 3) {
+                                if (theArticle.ArticleAX.Substring(0, 2) != thirdDegree)//an einai gia edra diath kai den einai 00 to thirdDegree
+                                    branchWarning = true;
                                 thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
-
+                            }
                             if (secondDegree == "00")
                             {
                                 if (fourthDegree == "0300" || fourthDegree == "1300")
@@ -265,6 +278,8 @@ namespace Pylon2ERP.dataClasses
                     {//arthro misthodosias
                         if (this.accountIsDebit && firstDegree == "60")
                         {//xreostikos logariasmos
+                            if (theArticle.ArticleAX.Substring(0,2) != thirdDegree)
+                                branchWarning = true;
                             thirdDegree = "00";
                             if (secondDegree == "00")
                             {//allagi 4o-vathmiou gia taktikes apodoxes
@@ -287,6 +302,8 @@ namespace Pylon2ERP.dataClasses
                     {//arthro epidoma adeias
                         if (this.accountIsDebit && firstDegree == "60")
                         {//xreostikos logariasmos
+                            if (theArticle.ArticleAX.Substring(0, 2) != thirdDegree)
+                                branchWarning = true;
                             thirdDegree = "00";
                             if (secondDegree == "00")
                             {
@@ -306,6 +323,8 @@ namespace Pylon2ERP.dataClasses
                     {//arthro apozimiosi adeias
                         if (this.accountIsDebit && firstDegree == "60")
                         {//xreostikos logariasmos
+                            if (theArticle.ArticleAX.Substring(0, 2) != thirdDegree)
+                                branchWarning = true;
                             thirdDegree = "00";
                             if (secondDegree == "00")
                             {
@@ -321,6 +340,8 @@ namespace Pylon2ERP.dataClasses
                         {//arthro doro pasxa
                             if (this.accountIsDebit && firstDegree == "60")
                             {//xreostikos logariasmos
+                                if (theArticle.ArticleAX.Substring(0, 2) != thirdDegree)
+                                    branchWarning = true;
                                 thirdDegree = "00";
                                 if (secondDegree == "00")
                                 {
@@ -339,11 +360,7 @@ namespace Pylon2ERP.dataClasses
                     } 
                     else if (theArticle.ArticleType == "ΑΠΟΖ. ΑΠΟΛΥΣΗΣ" || theArticle.ArticleType == "ΑΠΟΖ. ΣΥΝΤΑΞΙΟΔΟΤΗΣΗΣ") {//arthro apoz apolisis h apoz syntaksis
                         if (this.accountIsDebit && firstDegree == "60") {//xreostikos logariasmos
-                            if (theArticle.ArticleAX.Count() == 2)
-                                thirdDegree = theArticle.ArticleAX;
-                            else if (theArticle.ArticleAX.Count() == 3)
-                                thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
-
+                            thirdDegree = "00";
                             if (secondDegree == "05" || secondDegree.Length >= 3) {//sad logariasmoi tou sad pylon
                                 secondDegree = "05";
                                 fourthDegree = "0000";

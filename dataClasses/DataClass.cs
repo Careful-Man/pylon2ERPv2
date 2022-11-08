@@ -65,10 +65,5 @@ namespace Pylon2ERP.dataClasses
 
             return monthsDictionary;
         }
-        
-        public static Dictionary<string, string> getBranchesDictionary()
-        {
-            return branchesDictionary;
-        }
     }
 }
