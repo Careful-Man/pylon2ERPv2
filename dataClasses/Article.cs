@@ -39,8 +39,6 @@ namespace Pylon2ERP.dataClasses
         private double debitTotal = 6.2d;
         private double creditTotal = 6.2d;
 
-
-
         //constructor
         public Article(string articleDate, string articleBranch, string articleType, string articleMonth, MainForm mw)
         {
@@ -61,7 +59,6 @@ namespace Pylon2ERP.dataClasses
             this.articleAccounts = new List<Account>();
         }
 
-
         //other methods
         public void addAccountToThisArticleList(Account someAccount)
         {//vazei ena logariasmo sto arthro
@@ -71,6 +68,7 @@ namespace Pylon2ERP.dataClasses
         public void printArticlesAccounts(MainForm mw)
         {//typonei minimata stin konsola
             bool warning = false;
+            bool branchWarning = false;
 
             debitTotal = 0;
             creditTotal = 0;
@@ -100,9 +98,10 @@ namespace Pylon2ERP.dataClasses
                 }
                 
                 if (acc.Warning)
-                {
                     warning = true;
-                }
+
+                if (acc.BranchWarning) 
+                    branchWarning = true;
             }
             mw.appendToConsoleText("\n");
             //grafei sto telos tou arthrou mia grammi pou leei ta sinola. to substring apla kanei align ta athroismata me tis pistoseis
@@ -112,6 +111,9 @@ namespace Pylon2ERP.dataClasses
             if (warning)
             //an vrike proeidopoiisi, deikse analogo minima
                 mw.appendToConsoleColoredText("Προειδοποίηση: Το άρθρο αυτό ενδέχεται να μην είναι άρθρο " + this.ArticleType + ".", Color.Black, Color.Yellow);  
+
+            if(branchWarning)
+                mw.appendToConsoleColoredText("Προειδοποίηση: Το άρθρο αυτό ενδέχεται να μην είναι άρθρο του καταστήματος \"" + this.articleAX + "\".", Color.Black, Color.Yellow);
         }
 
         public void reduceAccounts()

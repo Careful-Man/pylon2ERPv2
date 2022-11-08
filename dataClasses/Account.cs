@@ -20,11 +20,14 @@ namespace Pylon2ERP.dataClasses
         private bool accountIsDebit;
         public bool AccountIsDebit { get { return accountIsDebit; } }
 
-        private double accountBalance = 6.2d; //pedio pou me voithaei na emfaniso proeidopoihtiko minima lathos eisagogis
+        private double accountBalance = 6.2d; 
         public double AccountBalance { get { return accountBalance; } }
         
-        private bool warning;
+        private bool warning;//pedio pou me voithaei na emfaniso proeidopoihtiko minima lathos eisagogis
         public bool Warning { get { return warning; } }
+
+        private bool branchWarning;
+        public bool BranchWarning { get { return branchWarning; } }
 
 
 
@@ -48,6 +51,7 @@ namespace Pylon2ERP.dataClasses
             this.accountIsDebit = accountIsDebit;
             this.accountBalance = accountBalance;
             this.warning = warning;
+            this.branchWarning = false;
         }
 
 
@@ -140,9 +144,11 @@ namespace Pylon2ERP.dataClasses
                     {//arthro misthodosias
                         if (this.accountIsDebit && firstDegree == "60")
                         {//xreostikos logariasmos
-                            if(theArticle.ArticleAX.Count() == 2)
+                            if (theArticle.ArticleAX.Count() == 2) {
+                                if (theArticle.ArticleAX != thirdDegree)
+                                    branchWarning = true;
                                 thirdDegree = theArticle.ArticleAX;
-                            else if(theArticle.ArticleAX.Count() == 3)
+                            } else if (theArticle.ArticleAX.Count() == 3)
                                 thirdDegree = "00";//gia tin diath to kano 00 epeidi to ax einai 001
 
                             if (secondDegree == "00")
