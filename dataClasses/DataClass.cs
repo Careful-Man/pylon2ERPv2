@@ -9,7 +9,10 @@ namespace Pylon2ERP.dataClasses
     class DataClass
     {
         protected static Dictionary<string, string> branchesDictionary = new();
+        public static Dictionary<string, string> BranchesDictionary { get { return branchesDictionary; } }
+
         protected static Dictionary<string, string> monthsDictionary = new();
+        public static Dictionary<string, string> MonthsDictionary { get { return monthsDictionary; } }
 
         public static Dictionary<string, string> populateBranchesDictionary()
         {
@@ -66,11 +69,6 @@ namespace Pylon2ERP.dataClasses
         public static Dictionary<string, string> getBranchesDictionary()
         {
             return branchesDictionary;
-        }
-
-        public static Dictionary<string, string> getMonthsDictionary()
-        {
-            return monthsDictionary;
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Pylon2ERP.dataClasses
                             someGLArticle = new Article(articleDatePicker.Text.Replace("/", ""),
                                 axTextBox.Text,
                                 articleTypeComboBox.Text,
-                                DataClass.getMonthsDictionary()[articleDatePicker.Text.Substring(3, 2)],
+                                DataClass.MonthsDictionary[articleDatePicker.Text.Substring(3, 2)],
                                 mf);
 
                             while (line != null)
