@@ -23,10 +23,10 @@ namespace Pylon2ERP.dataClasses
         private double accountBalance = 6.2d; 
         public double AccountBalance { get { return accountBalance; } }
         
-        private bool warning;//pedio pou me voithaei na emfaniso proeidopoihtiko minima lathos eisagogis
-        public bool Warning { get { return warning; } }
+        private bool articleWarning;//pedio pou me voithaei na emfaniso proeidopoihtiko minima eisagogis lathos arthrou
+        public bool Warning { get { return articleWarning; } }
 
-        private bool branchWarning;
+        private bool branchWarning;//pedio pou me voithaei na emfaniso proeidopoihtiko minima eisagogis lathos katastimatos
         public bool BranchWarning { get { return branchWarning; } }
 
 
@@ -50,7 +50,7 @@ namespace Pylon2ERP.dataClasses
             this.accountCodeCorrected = accountCodeCorrected;
             this.accountIsDebit = accountIsDebit;
             this.accountBalance = accountBalance;
-            this.warning = warning;
+            this.articleWarning = warning;
             this.branchWarning = false;
         }
 
@@ -161,7 +161,7 @@ namespace Pylon2ERP.dataClasses
 
                                     fourthDegree = "1000";
                                 else 
-                                    this.warning = true;
+                                    this.articleWarning = true;
                                 if (theArticle.ArticleAX == "26") {
                                     fourthDegree = "0000";
                                 }
@@ -191,7 +191,7 @@ namespace Pylon2ERP.dataClasses
                                 if (fourthDegree == "0700" || fourthDegree == "1700")
                                     fourthDegree = "1700";
                                 else
-                                    this.warning = true;
+                                    this.articleWarning = true;
                             }
                             else if (secondDegree == "03" || secondDegree == "04")
                             {//allagh 4o-vathmiou gia ergodotikes eisfores
@@ -218,7 +218,7 @@ namespace Pylon2ERP.dataClasses
                                 if (fourthDegree == "0800" || fourthDegree =="0600")
                                     fourthDegree = "1800";
                                 else
-                                    this.warning = true;
+                                    this.articleWarning = true;
                             }
                         }
                     }
@@ -239,7 +239,7 @@ namespace Pylon2ERP.dataClasses
                                 if (fourthDegree == "0300" || fourthDegree == "1300")
                                     fourthDegree = "1300";
                                 else
-                                    this.warning = true;
+                                    this.articleWarning = true;
                             }
                             else if (secondDegree == "03" || secondDegree == "04")
                             {//allagh 4o-vathmiou gia ergodotikes eisfores
@@ -262,7 +262,7 @@ namespace Pylon2ERP.dataClasses
                                 if (fourthDegree == "1000" || fourthDegree == "0000")
                                     fourthDegree = "1000";
                             } else
-                                this.warning = true;
+                                this.articleWarning = true;
                         }
                     }
                 }
@@ -289,7 +289,7 @@ namespace Pylon2ERP.dataClasses
 
                                     fourthDegree = "0000";
                                 else
-                                    this.warning = true;
+                                    this.articleWarning = true;
                             }
                             else if (secondDegree == "03" || secondDegree == "04")
                             {//allagh 4o-vathmiou gia ergodotikes eisfores
@@ -310,7 +310,7 @@ namespace Pylon2ERP.dataClasses
                                 if (fourthDegree == "0700" || fourthDegree == "1700")
                                     fourthDegree = "1700";
                                 else
-                                    this.warning = true;
+                                    this.articleWarning = true;
                             }
                             else if (secondDegree == "03" || secondDegree == "04")
                             {//allagh 4o-vathmiou gia ergodotikes eisfores
@@ -331,7 +331,7 @@ namespace Pylon2ERP.dataClasses
                                 if (fourthDegree == "0800" || fourthDegree == "0600")
                                     fourthDegree = "0800";
                                 else
-                                    this.warning = true;
+                                    this.articleWarning = true;
                             }
                         }
                     }
@@ -348,7 +348,7 @@ namespace Pylon2ERP.dataClasses
                                     if (fourthDegree == "0300" || fourthDegree == "1300")
                                         fourthDegree = "0300";
                                     else
-                                        this.warning = true;
+                                        this.articleWarning = true;
                                 }
                                 else if (secondDegree == "03" || secondDegree == "04")
                                 {//allagh 4o-vathmiou gia ergodotikes eisfores
@@ -367,7 +367,7 @@ namespace Pylon2ERP.dataClasses
                                 if (fourthDegree == "1000" || fourthDegree == "0000")
                                     fourthDegree = "0000";
                             } else {
-                                this.warning = true;
+                                this.articleWarning = true;
                             }
                         }
                     }

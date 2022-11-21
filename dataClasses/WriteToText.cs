@@ -6,7 +6,7 @@ namespace Pylon2ERP.dataClasses {
         public static string p2erpExportPath;
         public static string p2erpExportASCIIPath;
 
-        public static readonly string BINARY_FILE = "L:\\ΤΟΜ\\Visual Studio IDE Workspace\\Pylon2ERP\\bin\\Debug\\net6.0-windows\\research_charge.bin";
+        public static readonly string BINARY_FILE = "K:\\ΤΟΜ\\Visual Studio IDE Workspace\\Pylon2ERP\\bin\\Debug\\net6.0-windows\\research_charge.bin";
         //public static readonly string BINARY_FILE = "\\\\mantis_new\\usersB\\ΓΚΕΝΤΣΙΟΥ\\Pylon2ERP\\research_charge.bin";
         public static readonly string PYLON2ERP_MINIMA = "Pylon2ERP - Μήνυμα";
 
