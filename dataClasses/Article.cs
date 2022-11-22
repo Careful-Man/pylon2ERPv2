@@ -132,7 +132,8 @@ namespace Pylon2ERP.dataClasses
                                                                     tempAccount.AccountCodeCorrected,
                                                                     tempAccount.AccountIsDebit,
                                                                     Math.Round((tempAccount.AccountBalance + tempAccountPlusOne.AccountBalance), 2),
-                                                                    tempAccount.Warning);
+                                                                    tempAccount.Warning,
+                                                                    tempAccount.BranchWarning);
                         this.articleAccounts.RemoveAt(i + 1);
                         this.articleAccounts.RemoveAt(i);
 

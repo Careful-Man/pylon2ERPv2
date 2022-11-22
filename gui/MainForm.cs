@@ -40,10 +40,6 @@ namespace Pylon2ERP
             this.InitializeComponent();
         }
         
-
-
-
-
         //my methods
         public void setFilePathToTextBox(String s)
         {
@@ -110,19 +106,17 @@ namespace Pylon2ERP
             }
             if (!found)
             {//an to arthro iparxei idi min to valeis
-                foreach (Account acc in theArticle.ArticleAccounts)
-                {
+                foreach (Account acc in theArticle.ArticleAccounts) {
                     TreeNode accCodeLeaf = new TreeNode();
                     TreeNode accBalanceLeaf = new TreeNode();
-                    TreeNode accIsDebitLeaf = new TreeNode();
 
-                    accCodeLeaf.Text = acc.AccountCodeCorrected;
-                    accBalanceLeaf.Text = "Ποσό: " + theArticle.getAccountBalanceStringed(acc.AccountBalance) + "€";
-                    if (acc.AccountIsDebit)
-                        accIsDebitLeaf.Text = "Χρεωστικός λογαριασμός";
-                    else
-                        accIsDebitLeaf.Text = "Πιστωτικός λογαριασμός";
-                    accCodeLeaf.Nodes.Add(accIsDebitLeaf);
+                    if (acc.AccountIsDebit) {
+                        accCodeLeaf.Text = acc.AccountCodeCorrected;
+                        accBalanceLeaf.Text = "Ποσό: " + theArticle.getAccountBalanceStringed(acc.AccountBalance) + "€";
+                    } else {
+                        accCodeLeaf.Text = "        " + acc.AccountCodeCorrected;
+                        accBalanceLeaf.Text = "        Ποσό: " + theArticle.getAccountBalanceStringed(acc.AccountBalance) + "€";
+                    }
                     accCodeLeaf.Nodes.Add(accBalanceLeaf);
                     root.Nodes.Add(accCodeLeaf);
                 }
@@ -145,11 +139,6 @@ namespace Pylon2ERP
             this.articleTreeView.Nodes.Clear();
             this.treeArticles.Clear();
         }
-
-
-
-
-
 
 
 
@@ -231,9 +220,6 @@ namespace Pylon2ERP
                 }
                 if (e.KeyChar == (char)Keys.Back)//an ta dialeksei ola kai patisei backspace, ta svinei ola. Nai, einai aparaitito afto to kommati kodika
                     axNameLabel.Text = "";
-
-                
-
             }
         }
 
